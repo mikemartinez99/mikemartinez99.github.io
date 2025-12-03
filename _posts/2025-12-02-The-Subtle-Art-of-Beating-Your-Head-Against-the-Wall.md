@@ -5,12 +5,13 @@ categories: [Bioinformatics Musings]
 tags: [Learning]
 ---
 
-# Bioinformatics: The Wall. 
+
 
 ## TL;DR
 
-Learning bioinformatics is less about instant wins and more about learning to persist through repeated failure, and that persistence is the real skill.
+**Learning bioinformatics is less about instant wins and more about learning to persist through repeated failure, and that persistence is the real skill.**
 
+# Bioinformatics: The Wall. 
 
 Let's set the scene. I'm 21 years old sitting in a zoom room at the height of the COVID-19 pandemic. The class is "Molecular Evolution and Bioinformatics" at the University of Connecticut. I had swapped out of another totally unrelated course in palce of this 2 weeks into the semester at the recommendation of a friend. I remember the first lecture. So many terms were being casually tossed around by my professor in his thick German accent. "Synteny", "sequence-space", "orthology"...I was starting to wonder what I had signed up for. The lab component of the class was where I would encounter the real trouble. 
 
