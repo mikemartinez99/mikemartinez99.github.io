@@ -5,8 +5,6 @@ categories: [Bioinformatics Musings]
 tags: [Learning]
 ---
 
-
-
 ## TL;DR
 
 **Learning bioinformatics is less about instant wins and more about learning to persist through repeated failure, and that persistence is the real skill.**
