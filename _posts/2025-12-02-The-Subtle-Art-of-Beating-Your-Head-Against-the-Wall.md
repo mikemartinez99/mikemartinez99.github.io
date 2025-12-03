@@ -1,5 +1,5 @@
 ---
-title: "The Subtle Art of Banging Your Head Against the Wall"
+title: "The Subtle Art of Beating Your Head Against the Wall"
 date: 2025-12-02
 categories: [Bioinformatics Musings]
 tags: [Learning]
