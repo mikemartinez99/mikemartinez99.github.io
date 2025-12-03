@@ -34,7 +34,7 @@ Learning how to beat your head against a wall (gracefully) is the real skill: re
 
 With the rise of AI,  this "head beating" has lessened to some extent. It's much easier to paste your error message into your favorite LLM and get back 30 lines of neartly linted code sprinkled with comments and emojis. Great! Until, you realize you don't actually know what your code does now or what the fix was. AI is powerful and in today's bioinformatics world, it is an indispensable resource. For beginners however, it is a double-edged sword. Rely on it blindly, and you don't truly learn...
 
-AI should not replace the real learning that occurs from wrestling with your code and the traditional "rights or passage" (i.e., finally getting the right numpy version in your conda env). Just because you can blast through the wall with brute force, doesn't mean you actually climbed it. 
+AI should not replace the real learning that occurs from wrestling with your code and the traditional "rites of passage" (i.e., finally getting the right numpy version in your conda env). Just because you can blast through the wall with brute force, doesn't mean you actually climbed it. 
 
 As Dean Lee and Tommy Tang like to say:
 **Ask your LLM to explain everything line by line.**
