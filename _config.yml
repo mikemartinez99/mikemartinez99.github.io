@@ -14,12 +14,12 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Compute and Conquer # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+tagline: A bioinformatics blog # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  Thoughts and musing about bioinformatics, practical tips and tricks, and everything in between.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -93,7 +93,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: https://media.licdn.com/dms/image/v2/D4E03AQFT-c2is4TPug/profile-displayphoto-scale_400_400/B4EZmqu7.EGYAg-/0/1759506061569?e=1766016000&v=beta&t=5i8oGJLRYZd7heaY01lUFG_eUbBeHc5DDvCM3g-ND0A
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
