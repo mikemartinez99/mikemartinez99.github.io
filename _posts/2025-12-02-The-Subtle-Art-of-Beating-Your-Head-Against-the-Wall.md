@@ -60,4 +60,4 @@ If you're just getting started and feeling overwhelmed, do not give up. You won'
 
 The important thing is that you learn to beat your head against the wall without breaking your spirit...this is the subtle art. When you finally make it to the other side, enjoy the view, but not for too long...someone just invented a new omics technology and your client needs the results by Friday.
 
-**Computer and Conquer!!**
+**Compute and Conquer!!**
