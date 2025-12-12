@@ -1,6 +1,6 @@
 ---
 title: "Pixi, Conda's Cooler and Faster Cousin."
-date: 2025-12-02
+date: 2025-12-12
 categories: [Bioinformatics Tooling]
 tags: [Learning]
 ---
