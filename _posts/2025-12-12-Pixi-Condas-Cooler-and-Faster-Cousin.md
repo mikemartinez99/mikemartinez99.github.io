@@ -19,17 +19,17 @@ If you are in the data science world in any capacity, you've probably heard the 
 
 Why is this painful?
 
-1.	**Conda shoves every environment into one giant global trash pile.**
+**Conda shoves every environment into one giant global trash pile.**
 
 Different projects need slightly different versions of the same package? You now have redundant, bloated, multi gigabyte Frankenstein environments stacked on top of each other.
 And because everything shares the same global directory, environment drift is practically guaranteed.
 	
-2.	**You end up with a graveyard of environments, and you’re always in the wrong one.**
+**You end up with a graveyard of environments, and you’re always in the wrong one.**
 
 A single project can spawn an ungodly number of environments.
 Documentation becomes chaos, provenance becomes guesswork, and every debugging session begins with the sacred ritual of: “Wait… am I even in the right conda env?” (Spoiler: you’re not.)
 
-3.	**Conda environment solves are slow enough to qualify as geological events.**
+**Conda environment solves are slow enough to qualify as geological events.**
 
 Even with faster solvers like Mamba, you still end up starting an environment build, going home, sleeping, hoping and praying it solves by the morning. And if it doesn’t...back to square one, because conda has no respect for your time, your deadlines, or your sanity. (This is not *always* the case, but more times than not, your environment is pretty beefy and will take a substantial amount of time.)
 
