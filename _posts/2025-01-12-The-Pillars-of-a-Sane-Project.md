@@ -64,7 +64,7 @@ We've touched briefly on organizational style, but it's worth going deeper. Ther
     │   └── 04-GSEA-Outputs/
 ```
 
-In this way, I can be 100% certain that the outputs in `04-GSEA-Outputs/` were generated from the code file that shares the same name. There is no guess work involved. I also prefer to keep code and analyses modular and bite-sized. Sure, it is totally valid to combine all 5 scripts above into one called `RNASeq-analysis.R`, but your output folder will quickly become crowded and overwhelming for anyone else who may stumble upon it down the road. 
+In this way, I can be 100% certain that the outputs in `04-GSEA-Outputs/` were generated from the code file that shares the same name. I also prefer to keep code and analyses modular and bite-sized. Sure, it is totally valid to combine all 5 scripts above into one called `RNASeq-analysis.R`, but your output folder will quickly become crowded and overwhelming for anyone else who may stumble upon it down the road. 
 
 Naming conventions also matter! Projects will follow a `YYMMDD-Project` structure. Output files are trickier because there is a breadth of variability. I try to be informative in the file name without being too long, for example `STAR-RNASeq-Counts-Raw`, or `RNASeq-Counts-Processed-TPM`. You can play around with what works best for you!
 
@@ -89,7 +89,7 @@ Plain and simple: I am bullish on multi-level documentation.
 
 *Level 1:* Your R files have documentation inside of them: headers explaining what the project is, what the code does (broadly), when you wrote it, and what the inputs are (including relevant paths). The code then has subsection headers; each subsection contains extensive comments. In my mind, every operation deserves some degree of comment, even if it is as simple as `# trim whitespace from column names`...yes, we all probably can tell that by seeing the `trimws()` command, but you stand to lose *nothing* by "idiot-proofing" your code. 
 
-*Level 2:* Your repo contains a `README` at the top level (see my example template above). This is a high-level explanation of the project as a whole. Typically, I will include a badge showing the 'project's status, some biological background, the questions I am chasing, any software information (i.e., Conda YAMLs, Pixi lock paths, etc), and a list of all the code files included in the repo, grouped by the logical flow of the analysis (i.e., the major steps).
+*Level 2:* Your repo contains a `README` at the top level (see my example template above). This is a high-level explanation of the project as a whole. Typically, I will include a badge showing the project's status, some biological background, the questions I am chasing, any software information (i.e., Conda YAMLs, Pixi lock paths, etc), and a list of all the code files included in the repo, grouped by the logical flow of the analysis (i.e., the major steps).
 
 *Level 3:* Within the code folder, you have *another* `README` that goes into extensive detail on the technical aspects of the code. Think of this almost as a polished lab notebook. It includes things that might have failed initially, your logic for fixing them, a path to a helpful Stack Overflow post, etc. It also includes what files were output by the code. This can literally be as detailed as you want. Your top-level `README` is the *sketch*, but your code `README` is the full drawing with color and shading.
 
