@@ -7,7 +7,7 @@ tags: [Tutorial]
 
 ## TL;DR
 
-Exploratory data analysis (EDA) helps you understand *what is driving variation* in your data *before* formal modeling. I developed `RGenEDA` to sit between raw preprocessing and formal modeling; helping to provide a structured, reproducible framework for performing data exploration and QC analyses in R, making your work efficient, nterpretable, and backed by quantitative metrics. 
+Exploratory data analysis (EDA) helps you understand *what is driving variation* in your data *before* formal modeling. I developed `RGenEDA` to sit between raw preprocessing and formal modeling; helping to provide a structured, reproducible framework for performing data exploration and QC analyses in R, making your work efficient, interpretable, and backed by quantitative metrics. 
 
 **Disclaimer** this is *not* a comprehensive analysis nor a comprehensive vignette of the capabilities of `RGenEDA`.
 
