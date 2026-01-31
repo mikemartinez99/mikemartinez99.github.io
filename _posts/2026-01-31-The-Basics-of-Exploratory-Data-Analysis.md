@@ -1,6 +1,6 @@
 ---
 title: "The Basics of Exploratory Data Analysis"
-date: 2026-02-01
+date: 2026-01-31
 categories: [Bioinformatics]
 tags: [Tutorial]
 ---
