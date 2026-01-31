@@ -11,7 +11,7 @@ Exploratory data analysis (EDA) helps you understand *what is driving variation*
 
 **Disclaimer** this is *not* a comprehensive analysis nor a comprehensive vignette of the capabilities of `RGenEDA`.
 
-<img src="../img/Feb_2026/IECs/RGenEDA.png" style="display: block; margin: auto; width: 50%;" />
+<img src="../img/Feb_2026/IECs/RGenEDA.png" alt="Overview schematic of the RGenEDA exploratory data analysis workflow" style="display: block; margin: auto; width: 50%;" />
 
 
 ## What is exploratory data analysis
@@ -82,7 +82,7 @@ hm$heatmap
 
 ```
 
-<img src="../img/Feb_2026/IECs/EucDists.png" style="display: block; margin: auto; width: 50%;" />
+<img src="../img/Feb_2026/IECs/EucDists.png" alt="Distance heatmap" style="display: block; margin: auto; width: 50%;" />
 
 What can we glean from this at a high-level? Clustering seems to be driven by the anatomical region. We see all terminal ileum samples clustering away from the ascending and sigmoid colon. In general, it seems that samples that are inflammation (+) cluster more with the ascending and sigmoid colon samples. *Anatomical region seems to be really important for differentiating these samples from one another.* Let's keep this in the back of our mind as we move forward as EDA works best when observations accumulate across multiple, independent summaries of the data. 
 
@@ -100,7 +100,7 @@ PlotHVGVariance(obj)
 
 ```
 
-<img src="../img/Feb_2026/IECs/HVG_Elbowplot.png" style="display: block; margin: auto; width: 30%;" />
+<img src="../img/Feb_2026/IECs/HVG_Elbowplot.png" alt="HVG elbow plot" style="display: block; margin: auto; width: 30%;" />
 
 For this dataset, we see a variance plateau at around 3000 genes, so we can assign these features as our HVGs by using the `FindVariableFeatures` command. Importantly, the exact number of HVGs is **not a fixed rule**; rather, it should balance capturing meaningful biological variation while avoiding unnecessary noise. 
 
@@ -133,7 +133,7 @@ PlotScree(obj)
 
 ```
 
-<img src="../img/Feb_2026/IECs/Screeplot.png" style="display: block; margin: auto; width: 30%;" />
+<img src="../img/Feb_2026/IECs/Screeplot.png" alt="PCA Scree plot" style="display: block; margin: auto; width: 30%;" />
 
 
 Most people now would jump straight to plotting PC1 vs PC2 as a scatter plot, but for an experiment with many metadata features, this can be cumbersome unless you have some *a priori* information about what *should* drive clustering. Instead of guessing which metadata variables to visualize, we can systematically assess which are more important than others by correlating them to the PCs we calculated. These are known as **Eigenvector correlations.** At a high-level, this function calculates Pearson correlation coefficients for metadata categories and your principal components (sample PC scores) to help you identify which features are driving variation of specific axes of variation. This also helps researchers to avoid confirmation bias and ensure their interpretation is *data-driven*.  
@@ -146,7 +146,7 @@ ec$plot
 
 ```
 
-<img src="../img/Feb_2026/IECs/Eigencorr.png" style="display: block; margin: auto; width: 50%;" />
+<img src="../img/Feb_2026/IECs/Eigencorr.png" alt="Eigenvector correlation heatmap" style="display: block; margin: auto; width: 50%;" />
 
 Based on this, we see that anatomical region and inflammation status are strongly correlated with PC1, and additionally on PC2. We can explore these variables more on a PCA plot. We now have two sources of corroborating evidence that anatomical region matters *greatly* for this dataset. At this point, we can almost certainly say that this should be accounted for in downstream modelling. However, we should still assess the data on a PCA plot.
 
@@ -174,7 +174,7 @@ ggplot(pcaDF, aes(x = PC1, y = PC2, fill = Region)) +
 
 ```
 
-<img src="../img/Feb_2026/IECs/PCA.png" style="display: block; margin: auto; width: 50%;" />
+<img src="../img/Feb_2026/IECs/PCA.png" alt="PCA plot" style="display: block; margin: auto; width: 50%;" />
 
 ## What Comes Next?
 
