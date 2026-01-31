@@ -14,9 +14,9 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Compute and Conquer # the main title
+title: Mike Martinez M.S. # the main title
 
-tagline: A bioinformatics blog # it will display as the subtitle
+tagline: Bioinformatics Research Scientist # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Thoughts and musing about bioinformatics, practical tips and tricks, and everything in between.
@@ -219,3 +219,10 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+# Add new tabs to the navigation menu
+navigation:
+  - title: Experience
+    url: /experience/
+  - title: Features Projects
+    url: /fetured-projects/
