@@ -1,21 +1,436 @@
 ---
-layout: home
-title: Compute & Conquer Blog
-# Index page
+layout: default
+title: Mike Martinez · Bioinformatics Research Scientist
 ---
 
-## About Me
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero__grid">
 
-<div style="padding: 30px; background: var(--card-bg); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 900px; margin: 20px auto;">
-  <p style="color: var(--text-color); line-height: 1.8; font-size: 1.05rem; margin: 0;">
-    I am a bioinformatics scientist with a passion for making sense of complex omics data and uncovering meaningful patterns that help turn hypotheses into actionable insights. My background is rooted in next-gen sequencing technologies and data analysis which has allowed me to work across a multitude of omics data modalities—including spatial proteomics via imaging mass cytometry, spatial transcriptomics, single-cell ATAC/RNA-Seq, bulk RNA-Seq, and metagenomics.
-  </p>
-  
-  <p style="color: var(--text-color); line-height: 1.8; font-size: 1.05rem; margin: 20px 0 0 0;">
-    I love collaborating with bench scientists, helping them navigate their data, teaching them that bioinformatics is not scary, and learning about their research along the way. I also have experience debugging software, troubleshooting NGS workflows, and setting up reproducible pipelines through workflow management languages like Snakemake.
-  </p>
-  
-  <p style="color: var(--text-color); line-height: 1.8; font-size: 1.05rem; margin: 20px 0 0 0;">
-    When I'm not sifting through sequencing files or surfing the command line, you'll probably find me in the gym putting up weights or playing the drums to my favorite nu-metal songs.
-  </p>
-</div>
+      <!-- Left: text -->
+      <div class="hero__content">
+        <p class="hero__eyebrow">Hello, I'm</p>
+
+        <h1 class="hero__name">
+          Mike<br>
+          <span class="gradient-text">Martinez.</span>
+        </h1>
+
+        <p class="hero__title">
+          Bioinformatics Research Scientist &nbsp;·&nbsp;
+          <em>Genomics &amp; Multi-Omics</em>
+        </p>
+
+        <p class="hero__bio">
+          I make sense of complex omics data — from single-cell sequencing and spatial transcriptomics
+          to metagenomics and beyond. Currently building reproducible pipelines and uncovering
+          biological signal at Dartmouth's Center for Quantitative Biology.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#experience" class="btn btn-primary">
+            <i class="fas fa-briefcase" aria-hidden="true"></i> View Resume
+          </a>
+          <a href="https://github.com/mikemartinez99" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+            <i class="fab fa-github" aria-hidden="true"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/michael-martinez99" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+            <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+          <a href="/blog/" class="btn btn-glass">
+            <i class="fas fa-pencil-alt" aria-hidden="true"></i> Blog
+          </a>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+          <span class="hero__scroll-line"></span>
+          scroll to explore
+        </div>
+      </div>
+
+      <!-- Right: photo -->
+      <div class="hero__photo-wrap" aria-hidden="true">
+        <div class="hero__photo-ring">
+          <div class="hero__photo-inner">
+            <img src="/img/resume_imgs/me_new.png" alt="Mike Martinez" class="hero__photo" />
+          </div>
+        </div>
+        <!-- floating badges -->
+        <div class="hero__badge hero__badge--tl glass">
+          <i class="fas fa-dna"></i>&nbsp; scRNA-Seq
+        </div>
+        <div class="hero__badge hero__badge--br glass">
+          <i class="fas fa-code-branch"></i>&nbsp; Snakemake
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">About Me</h2>
+
+    <div class="glass about__card">
+      <div class="about__text">
+        <p>
+          I am a bioinformatics scientist with a passion for making sense of complex omics data and uncovering
+          meaningful patterns that help turn hypotheses into actionable insights. My background is rooted in
+          next-gen sequencing technologies and data analysis, which has allowed me to work across a multitude
+          of omics data modalities — including spatial proteomics via imaging mass cytometry, spatial
+          transcriptomics, single-cell ATAC/RNA-Seq, bulk RNA-Seq, and metagenomics.
+        </p>
+        <p>
+          I love collaborating with bench scientists, helping them navigate their data, teaching them that
+          bioinformatics is not scary, and learning about their research along the way. I also have experience
+          debugging software, troubleshooting NGS workflows, and setting up reproducible pipelines through
+          workflow management languages like Snakemake.
+        </p>
+        <p>
+          When I'm not sifting through sequencing files or surfing the command line, you'll probably find me
+          in the gym putting up weights or playing the drums to my favorite nu-metal songs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════════════════ -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Where I've Worked</p>
+    <h2 class="section-title">Experience</h2>
+
+    <div class="timeline">
+
+      <!-- Geisel / Dartmouth -->
+      <div class="glass tl-card">
+        <div class="tl-logo">
+          <img src="/img/resume_imgs/Geisel.png" alt="Geisel School of Medicine logo" />
+        </div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-org">Geisel School of Medicine at Dartmouth</div>
+              <div class="tl-role">Research Scientist · Center for Quantitative Biology</div>
+            </div>
+            <span class="tl-date">Oct 2024 – Present</span>
+          </div>
+          <ul class="tl-list">
+            <li>Developed reproducible Snakemake workflows for WES and bulk ATAC-Seq, reducing preprocessing time and enabling increased scalability.</li>
+            <li>Supported Dartmouth researchers by developing boutique analysis pipelines for tRNA-Seq and proprietary sequencing strategies.</li>
+            <li>Analyzed a wide range of projects spanning eukaryotic and prokaryotic genomics including scRNA/ATAC-seq, 10X Spatial (Visium &amp; Xenium), and MGX.</li>
+            <li>Created the R package <strong>RGenEDA</strong> to ensure reproducible exploratory data analysis and reduce analysis times.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- UConn Health -->
+      <div class="glass tl-card">
+        <div class="tl-logo">
+          <img src="/img/resume_imgs/UCHC.jpeg" alt="UConn Health Center logo" />
+        </div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-org">UConn Health Center</div>
+              <div class="tl-role">Clinical Research Technician I · Dept. of Molecular Oncology</div>
+            </div>
+            <span class="tl-date">Jun 2023 – Sep 2024</span>
+          </div>
+          <ul class="tl-list">
+            <li>Spearheaded design and implementation of computational methods in R for multi-omics studies including bulk RNA-Seq, 16S amplicon sequencing, and targeted metabolomics.</li>
+            <li>Utilized bash scripting on an HPC to automate bulk RNA-Seq preprocessing.</li>
+            <li>Conducted full DEG/GSEA analysis of bulk colon tissue from Pirc rats to highlight the combinatorial effect of naproxen and EPA on colon cancer chemoprevention.</li>
+            <li>Analyzed colonic spatial immune architecture via multiplex imaging mass cytometry.</li>
+            <li>Generated effective, publication-quality figures using R and ggplot2.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Intus Biosciences -->
+      <div class="glass tl-card">
+        <div class="tl-logo">
+          <img src="/img/resume_imgs/Intus_logo.jpeg" alt="Intus Biosciences logo" />
+        </div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-org">Intus Biosciences</div>
+              <div class="tl-role">Bioinformatics R&amp;D Intern</div>
+            </div>
+            <span class="tl-date">Jun 2022 – Sep 2022</span>
+          </div>
+          <ul class="tl-list">
+            <li>Leveraged synthetic PacBio and ONT long reads as standardized, ground-truth input to validate and benchmark proprietary microbiome clustering software.</li>
+            <li>Contributed to pipeline development through a series of custom R scripts to generate taxonomy call files.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Jonathan Klassen Lab -->
+      <div class="glass tl-card">
+        <div class="tl-logo">
+          <img src="/img/resume_imgs/UConn.png" alt="University of Connecticut logo" />
+        </div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-org">Jonathan Klassen Lab (UConn MCB)</div>
+              <div class="tl-role">Student Researcher</div>
+            </div>
+            <span class="tl-date">Sep 2021 – May 2023</span>
+          </div>
+          <ul class="tl-list">
+            <li>Managed LIMS database and deposition of raw sequencing reads to NCBI's SRA database.</li>
+            <li>Assembled and annotated bacterial genomes from Illumina MiSeq reads using SPAdes and Prokka.</li>
+            <li>Investigated fungal communities of <em>T. septentrionalis</em> fungus gardens to highlight ant symbiotic dynamics.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     EDUCATION
+══════════════════════════════════════════════ -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-grid">
+
+      <div class="glass edu-card">
+        <div class="edu-logo">
+          <img src="/img/resume_imgs/UConn.png" alt="University of Connecticut logo" />
+        </div>
+        <div>
+          <div class="edu-degree">M.S. — Microbial Systems Analysis</div>
+          <div class="edu-field">University of Connecticut</div>
+          <div class="edu-school">Advisors: Dr. Joerg Graf · Dr. Jonathan Klassen · Dr. Sarah Hird</div>
+          <span class="edu-date">May 2023</span>
+        </div>
+      </div>
+
+      <div class="glass edu-card">
+        <div class="edu-logo">
+          <img src="/img/resume_imgs/UConn.png" alt="University of Connecticut logo" />
+        </div>
+        <div>
+          <div class="edu-degree">B.S. — Molecular &amp; Cell Biology</div>
+          <div class="edu-field">University of Connecticut</div>
+          <div class="edu-school">Minor: Psychological Sciences</div>
+          <span class="edu-date">May 2021</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">What I've Built</p>
+    <h2 class="section-title">Highlighted Projects</h2>
+
+    <div class="projects-grid">
+
+      <div class="glass proj-card">
+        <img src="/img/resume_imgs/RGen_EDA.png" alt="RGenEDA package icon" class="proj-icon" />
+        <div class="proj-title">RGenEDA</div>
+        <p class="proj-desc">
+          An R package providing a structured, reproducible framework for exploratory data analysis of
+          genomics data — sitting cleanly between raw preprocessing and formal modeling.
+        </p>
+        <a href="https://github.com/mikemartinez99/RGenEDA" target="_blank" rel="noopener noreferrer" class="proj-link">
+          <i class="fab fa-github" aria-hidden="true"></i> View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="glass proj-card">
+        <img src="/img/resume_imgs/miRNA.png" alt="miRNA isomiR pipeline icon" class="proj-icon" />
+        <div class="proj-title">miRNA &amp; isomiR Pipeline</div>
+        <p class="proj-desc">
+          A Snakemake workflow for the analysis of miRNAs and isomiRs from high-throughput sequencing data,
+          built for the Dartmouth Data Analytics Core.
+        </p>
+        <a href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-miRNAseq-analysis-pipeline" target="_blank" rel="noopener noreferrer" class="proj-link">
+          <i class="fab fa-github" aria-hidden="true"></i> View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="glass proj-card">
+        <img src="/img/resume_imgs/exome.png" alt="Targeted WES pipeline icon" class="proj-icon" />
+        <div class="proj-title">Targeted WES Pipeline</div>
+        <p class="proj-desc">
+          A Snakemake workflow for the preprocessing and analysis of targeted whole exome sequencing (WES) data,
+          with built-in QC and variant calling steps.
+        </p>
+        <a href="https://github.com/mikemartinez99/WES_Pipeline" target="_blank" rel="noopener noreferrer" class="proj-link">
+          <i class="fab fa-github" aria-hidden="true"></i> View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TECH STACK
+══════════════════════════════════════════════ -->
+<section id="tech">
+  <div class="container">
+    <p class="section-label">Tools of the Trade</p>
+    <h2 class="section-title">Tech Stack</h2>
+
+    <div class="glass tech-intro">
+      R and Snakemake are my daily drivers. I also code in Bash and Python, with a consistent focus on
+      reproducibility, scalability, and clean reporting. My stack spans the full bioinformatics workflow —
+      from raw read QC to publication-ready figures.
+    </div>
+
+    <div class="tech-grid">
+
+      <!-- Real logos -->
+      <div class="glass tech-item">
+        <img src="/img/resume_imgs/R_logo.png" alt="R programming language logo" />
+        <span class="tech-name">R</span>
+      </div>
+      <div class="glass tech-item">
+        <img src="/img/resume_imgs/bash_logo.png" alt="Bash shell logo" />
+        <span class="tech-name">Bash</span>
+      </div>
+      <div class="glass tech-item">
+        <img src="/img/resume_imgs/python_logo.png" alt="Python logo" />
+        <span class="tech-name">Python</span>
+      </div>
+      <div class="glass tech-item">
+        <img src="/img/resume_imgs/Snakemake_logo.png" alt="Snakemake logo" />
+        <span class="tech-name">Snakemake</span>
+      </div>
+      <div class="glass tech-item">
+        <img src="/img/resume_imgs/DNA.png" alt="Single-cell RNA sequencing" />
+        <span class="tech-name">scRNA-Seq</span>
+      </div>
+
+      <!-- Custom-designed badges (no image file available) -->
+      <div class="glass tech-item">
+        <div class="tech-badge tech-badge--git" aria-label="Git version control">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="35" cy="13" r="5.5" stroke="#F05032" stroke-width="2.5"/>
+            <circle cx="13" cy="13" r="5.5" stroke="#F05032" stroke-width="2.5"/>
+            <circle cx="13" cy="35" r="5.5" stroke="#F05032" stroke-width="2.5"/>
+            <line x1="13" y1="18.5" x2="13" y2="29.5" stroke="#F05032" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M18.5 13 Q24 13 24 19 L24 29" stroke="#F05032" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M24 29 Q24 34.5 29.5 34.5" stroke="#F05032" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <line x1="24" y1="13" x2="29.5" y2="13" stroke="#F05032" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="tech-name">Git</span>
+      </div>
+
+      <div class="glass tech-item">
+        <div class="tech-badge tech-badge--hpc" aria-label="HPC and SLURM">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <rect x="4" y="6"  width="40" height="9" rx="3" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5"/>
+            <circle cx="10" cy="10.5" r="2" fill="#10b981"/>
+            <rect x="16" y="9" width="16" height="3" rx="1.5" fill="rgba(16,185,129,0.3)"/>
+            <rect x="4" y="19" width="40" height="9" rx="3" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <circle cx="10" cy="23.5" r="2" fill="rgba(16,185,129,0.7)"/>
+            <rect x="16" y="22" width="12" height="3" rx="1.5" fill="rgba(16,185,129,0.2)"/>
+            <rect x="4" y="32" width="40" height="9" rx="3" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <circle cx="10" cy="36.5" r="2" fill="rgba(16,185,129,0.4)"/>
+            <rect x="16" y="35" width="8" height="3" rx="1.5" fill="rgba(16,185,129,0.15)"/>
+          </svg>
+        </div>
+        <span class="tech-name">HPC / SLURM</span>
+      </div>
+
+      <div class="glass tech-item">
+        <div class="tech-badge tech-badge--spatial" aria-label="Spatial omics">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <!-- heatmap grid — 4x4 cells -->
+            <rect x="3"  y="3"  width="9" height="9" rx="2" fill="rgba(6,182,212,0.9)"/>
+            <rect x="14" y="3"  width="9" height="9" rx="2" fill="rgba(139,92,246,0.7)"/>
+            <rect x="25" y="3"  width="9" height="9" rx="2" fill="rgba(6,182,212,0.4)"/>
+            <rect x="36" y="3"  width="9" height="9" rx="2" fill="rgba(139,92,246,0.95)"/>
+
+            <rect x="3"  y="14" width="9" height="9" rx="2" fill="rgba(139,92,246,0.5)"/>
+            <rect x="14" y="14" width="9" height="9" rx="2" fill="rgba(16,185,129,0.85)"/>
+            <rect x="25" y="14" width="9" height="9" rx="2" fill="rgba(6,182,212,0.75)"/>
+            <rect x="36" y="14" width="9" height="9" rx="2" fill="rgba(139,92,246,0.4)"/>
+
+            <rect x="3"  y="25" width="9" height="9" rx="2" fill="rgba(6,182,212,0.3)"/>
+            <rect x="14" y="25" width="9" height="9" rx="2" fill="rgba(6,182,212,0.6)"/>
+            <rect x="25" y="25" width="9" height="9" rx="2" fill="rgba(16,185,129,0.5)"/>
+            <rect x="36" y="25" width="9" height="9" rx="2" fill="rgba(6,182,212,0.85)"/>
+
+            <rect x="3"  y="36" width="9" height="9" rx="2" fill="rgba(139,92,246,0.8)"/>
+            <rect x="14" y="36" width="9" height="9" rx="2" fill="rgba(6,182,212,0.5)"/>
+            <rect x="25" y="36" width="9" height="9" rx="2" fill="rgba(139,92,246,0.65)"/>
+            <rect x="36" y="36" width="9" height="9" rx="2" fill="rgba(16,185,129,0.9)"/>
+          </svg>
+        </div>
+        <span class="tech-name">Spatial Omics</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     LATEST BLOG POSTS
+══════════════════════════════════════════════ -->
+<section id="blog-preview">
+  <div class="container">
+    <p class="section-label">Latest Writing</p>
+    <h2 class="section-title">From the Blog</h2>
+
+    <div class="posts-grid">
+      {% for post in site.posts limit:3 %}
+      <a href="{{ post.url }}" class="glass post-card">
+        <div class="post-card__meta">
+          {% if post.categories.size > 0 %}
+          <span class="post-cat">{{ post.categories | first }}</span>
+          {% endif %}
+          <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        </div>
+        <div class="post-card__title">{{ post.title }}</div>
+        {% if post.excerpt %}
+        <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+        {% if post.tags.size > 0 %}
+        <div class="post-tags">
+          {% for tag in post.tags limit:3 %}
+          <span class="tag">#&nbsp;{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="section-cta">
+      <a href="/blog/" class="btn btn-primary">
+        View All Posts <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+</section>

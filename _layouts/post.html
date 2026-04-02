@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<div class="container">
+  <article class="post-page">
+
+    <!-- Back link -->
+    <a href="/blog/" class="post-back">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Blog
+    </a>
+
+    <!-- Post header -->
+    <header>
+      {% if page.categories %}
+      <div class="post-cats">
+        {% for cat in page.categories %}
+        <span class="post-cat">{{ cat }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      <div class="post-meta">
+        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+        <span>{{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.author %}
+        <span class="post-meta-sep">·</span>
+        <i class="fas fa-user" aria-hidden="true"></i>
+        <span>{{ page.author }}</span>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="post-divider" aria-hidden="true"></div>
+
+    <!-- Post body -->
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <!-- Tags -->
+    {% if page.tags %}
+    <div class="post-footer-tags">
+      {% for tag in page.tags %}
+      <span class="tag">#&nbsp;{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </article>
+</div>

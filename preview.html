@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mike Martinez — Portfolio Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg:#050d1a; --glass-bg:rgba(255,255,255,.04); --glass-bg-h:rgba(255,255,255,.07);
+      --glass-bd:rgba(255,255,255,.07); --glass-bd-h:rgba(6,182,212,.35);
+      --cyan:#06b6d4; --cyan-dim:rgba(6,182,212,.12); --violet:#8b5cf6;
+      --violet-dim:rgba(139,92,246,.12); --emerald:#10b981;
+      --text:#cbd5e1; --text-muted:#475569; --text-head:#f1f5f9;
+      --nav-h:68px; --radius:18px; --T:.25s cubic-bezier(.4,0,.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    img{max-width:100%;display:block;}
+    a{color:inherit;text-decoration:none;}
+    ul{list-style:none;}
+    ::-webkit-scrollbar{width:5px;}
+    ::-webkit-scrollbar-track{background:var(--bg);}
+    ::-webkit-scrollbar-thumb{background:rgba(6,182,212,.25);border-radius:99px;}
+
+    .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+      radial-gradient(ellipse 70% 60% at 15% 40%,rgba(6,182,212,.09) 0%,transparent 60%),
+      radial-gradient(ellipse 65% 55% at 85% 60%,rgba(139,92,246,.09) 0%,transparent 60%),
+      radial-gradient(ellipse 50% 45% at 50% 95%,rgba(16,185,129,.06) 0%,transparent 55%);
+      animation:bgDrift 25s ease-in-out infinite alternate;}
+    @keyframes bgDrift{0%{transform:scale(1) translate(0,0)}33%{transform:scale(1.03) translate(-1.5%,1%)}66%{transform:scale(.97) translate(1.5%,-1%)}100%{transform:scale(1.01) translate(-.5%,.75%)}}
+
+    .glass{background:var(--glass-bg);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--glass-bd);border-radius:var(--radius);transition:background var(--T),border-color var(--T),box-shadow var(--T),transform var(--T);}
+    .glass:hover{background:var(--glass-bg-h);border-color:var(--glass-bd-h);box-shadow:0 0 48px rgba(6,182,212,.08),0 24px 64px rgba(0,0,0,.45);transform:translateY(-3px);}
+
+    .gradient-text{background:linear-gradient(135deg,var(--cyan) 0%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .section-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+    .section-label::before{content:'';display:block;width:24px;height:1px;background:var(--cyan);}
+    .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;color:var(--text-head);line-height:1.15;margin-bottom:3rem;}
+
+    .page-wrapper{position:relative;z-index:1;padding-top:var(--nav-h);}
+    .container{max-width:1080px;margin:0 auto;padding:0 2rem;}
+    section{padding:5.5rem 0;}
+
+    .navbar{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:200;background:rgba(5,13,26,.65);backdrop-filter:blur(24px) saturate(200%);-webkit-backdrop-filter:blur(24px) saturate(200%);border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;}
+    .navbar--scrolled{background:rgba(5,13,26,.88);}
+    .navbar__brand{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em;}
+    .navbar__links{display:flex;align-items:center;gap:2.25rem;}
+    .navbar__links a{color:var(--text-muted);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:color var(--T);}
+    .navbar__links a:hover{color:var(--cyan);}
+    .nav-cta{background:linear-gradient(135deg,var(--cyan),var(--violet))!important;color:#fff!important;padding:.45rem 1.1rem;border-radius:99px;font-size:.8rem!important;letter-spacing:0!important;text-transform:none!important;font-weight:700!important;}
+
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.6rem;border-radius:12px;font-weight:600;font-size:.88rem;transition:all var(--T);cursor:pointer;border:none;white-space:nowrap;}
+    .btn-primary{background:linear-gradient(135deg,var(--cyan),var(--violet));color:#fff;box-shadow:0 4px 24px rgba(6,182,212,.28);}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(6,182,212,.4);}
+    .btn-glass{background:var(--glass-bg);border:1px solid var(--glass-bd);color:var(--text);backdrop-filter:blur(12px);}
+    .btn-glass:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px);}
+
+    /* ─── HERO ─── */
+    #hero{min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;padding:5rem 0 4rem;}
+    .hero__grid{display:grid;grid-template-columns:1fr 300px;align-items:center;gap:4rem;}
+    .hero__eyebrow{display:flex;align-items:center;gap:.6rem;color:var(--cyan);font-size:.82rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.25rem;}
+    .hero__eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--cyan);}
+    .hero__name{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:700;line-height:1.03;color:var(--text-head);letter-spacing:-.02em;margin-bottom:.75rem;}
+    .hero__title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,2vw,1.4rem);font-weight:400;color:var(--text-muted);margin-bottom:1.75rem;}
+    .hero__title em{color:var(--violet);font-style:normal;font-weight:600;}
+    .hero__bio{font-size:1rem;color:var(--text-muted);max-width:560px;line-height:1.85;margin-bottom:2.5rem;}
+    .hero__actions{display:flex;gap:.85rem;flex-wrap:wrap;}
+    .hero__scroll{margin-top:3rem;display:flex;align-items:center;gap:.6rem;color:var(--text-muted);font-size:.8rem;}
+    .hero__scroll-line{width:40px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent);}
+
+    /* ─── Photo ─── */
+    .hero__photo-wrap{position:relative;display:flex;justify-content:center;align-items:center;}
+    .hero__photo-ring{width:280px;height:280px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--cyan),var(--violet),var(--emerald));box-shadow:0 0 60px rgba(6,182,212,.2),0 0 120px rgba(139,92,246,.1);animation:photoGlow 4s ease-in-out infinite alternate;flex-shrink:0;}
+    @keyframes photoGlow{0%{box-shadow:0 0 60px rgba(6,182,212,.2),0 0 120px rgba(139,92,246,.1)}100%{box-shadow:0 0 80px rgba(139,92,246,.3),0 0 140px rgba(6,182,212,.15)}}
+    .hero__photo-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#08111f;}
+    .hero__photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+    .hero__badge{position:absolute;padding:.4rem .85rem;font-size:.75rem;font-weight:700;letter-spacing:.04em;display:flex;align-items:center;gap:.35rem;white-space:nowrap;border-radius:12px;}
+
+    /* About */
+    .about__card{padding:2.5rem 3rem;}
+    .about__text{font-size:1.05rem;line-height:1.9;color:var(--text);}
+    .about__text p+p{margin-top:1.25rem;}
+
+    /* Timeline */
+    .timeline{display:flex;flex-direction:column;gap:1.25rem;}
+    .tl-card{padding:1.75rem 2rem;display:flex;gap:1.5rem;align-items:flex-start;}
+    .tl-logo{flex-shrink:0;width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--glass-bd);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .tl-logo img{width:48px;height:48px;object-fit:contain;}
+    .tl-body{flex:1;min-width:0;}
+    .tl-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.4rem;}
+    .tl-org{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-head);line-height:1.3;}
+    .tl-role{font-size:.85rem;font-weight:600;color:var(--cyan);margin-bottom:.5rem;}
+    .tl-date{font-size:.75rem;color:var(--text-muted);background:rgba(255,255,255,.04);border:1px solid var(--glass-bd);padding:.2rem .7rem;border-radius:99px;white-space:nowrap;flex-shrink:0;}
+    .tl-list{padding-left:1.1rem;color:var(--text-muted);font-size:.9rem;line-height:1.85;margin-top:.5rem;list-style:disc;}
+    .tl-list li+li{margin-top:.2rem;}
+
+    /* Education */
+    .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;}
+    .edu-card{padding:2rem;display:flex;align-items:center;gap:1.5rem;}
+    .edu-logo{flex-shrink:0;width:64px;height:64px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--glass-bd);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .edu-logo img{width:52px;height:52px;object-fit:contain;}
+    .edu-degree{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:.2rem;}
+    .edu-field{color:var(--cyan);font-weight:600;font-size:.88rem;margin-bottom:.2rem;}
+    .edu-school{color:var(--text-muted);font-size:.85rem;}
+    .edu-date{display:inline-block;margin-top:.4rem;font-size:.72rem;color:var(--text-muted);background:rgba(255,255,255,.04);border:1px solid var(--glass-bd);padding:.15rem .6rem;border-radius:99px;}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;}
+    .proj-card{padding:2rem;display:flex;flex-direction:column;}
+    .proj-icon{width:52px;height:52px;border-radius:12px;margin-bottom:1.25rem;object-fit:contain;background:rgba(255,255,255,.04);border:1px solid var(--glass-bd);padding:8px;}
+    .proj-title{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:.5rem;}
+    .proj-desc{color:var(--text-muted);font-size:.9rem;line-height:1.7;flex:1;margin-bottom:1.25rem;}
+    .proj-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--cyan);font-size:.84rem;font-weight:600;transition:gap var(--T);}
+    .proj-link:hover{gap:.65rem;}
+
+    /* Tech Stack */
+    .tech-intro{margin-bottom:2.5rem;color:var(--text-muted);font-size:1.05rem;line-height:1.8;padding:1.75rem 2rem;}
+    .tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;}
+    .tech-item{padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;text-align:center;cursor:default;}
+    .tech-item svg,.tech-item img{width:48px;height:48px;object-fit:contain;transition:filter var(--T),transform var(--T);}
+    .tech-item:hover svg,.tech-item:hover img{filter:drop-shadow(0 0 10px rgba(6,182,212,.5));transform:translateY(-4px) scale(1.08);}
+    .tech-name{font-weight:600;font-size:.88rem;color:var(--text);}
+
+    /* Blog preview */
+    .posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;}
+    .post-card{padding:2rem;display:flex;flex-direction:column;cursor:pointer;}
+    .post-card__meta{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;flex-wrap:wrap;}
+    .post-cat{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(6,182,212,.2);padding:.2rem .65rem;border-radius:99px;}
+    .post-date{font-size:.78rem;color:var(--text-muted);}
+    .post-card__title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text-head);line-height:1.4;margin-bottom:.5rem;flex:1;transition:color var(--T);}
+    .post-card:hover .post-card__title{color:var(--cyan);}
+    .post-card__excerpt{font-size:.88rem;color:var(--text-muted);line-height:1.65;margin-bottom:1.25rem;}
+    .post-tags{display:flex;gap:.4rem;flex-wrap:wrap;}
+    .tag{font-size:.72rem;color:var(--text-muted);background:rgba(255,255,255,.04);border:1px solid var(--glass-bd);padding:.15rem .5rem;border-radius:8px;}
+    .section-cta{text-align:center;margin-top:2.5rem;}
+
+    /* Blog page */
+    .blog-hero{padding:5rem 0 4rem;}
+    .blog-hero__title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:700;color:var(--text-head);line-height:1.1;margin-bottom:.75rem;}
+    .blog-hero__sub{color:var(--text-muted);font-size:1.05rem;max-width:480px;}
+    .blog-divider{height:1px;background:linear-gradient(90deg,rgba(6,182,212,.4),transparent);opacity:.2;margin-bottom:4rem;}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;margin-bottom:6rem;}
+
+    /* Footer */
+    footer{position:relative;z-index:1;padding:2.5rem 0;border-top:1px solid var(--glass-bd);text-align:center;}
+    .footer__links{display:flex;justify-content:center;gap:2rem;margin-bottom:1.25rem;}
+    .footer__links a{color:var(--text-muted);font-size:.88rem;display:inline-flex;align-items:center;gap:.4rem;transition:color var(--T);}
+    .footer__links a:hover{color:var(--cyan);}
+    .footer__copy{color:var(--text-muted);font-size:.78rem;}
+
+    /* Responsive */
+    @media(max-width:860px){
+      .hero__grid{grid-template-columns:1fr;gap:3rem;}
+      .hero__photo-wrap{order:-1;justify-content:center;}
+      .hero__photo-ring{width:220px;height:220px;}
+    }
+    @media(max-width:600px){
+      section{padding:4rem 0;}.container{padding:0 1.25rem;}
+      .tl-card{flex-direction:column;gap:1rem;}
+      .edu-card{flex-direction:column;text-align:center;}
+      .hero__actions{flex-direction:column;align-items:flex-start;}
+      .hero__photo-ring{width:180px;height:180px;}
+    }
+
+    /* Page switcher */
+    .page-switcher{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;display:flex;flex-direction:column;gap:.5rem;}
+    .page-switcher button{background:linear-gradient(135deg,var(--cyan),var(--violet));color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(6,182,212,.3);}
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <nav class="navbar" id="navbar">
+    <a href="#" class="navbar__brand">MM<span style="color:var(--violet)">.</span></a>
+    <ul class="navbar__links">
+      <li><a href="#about" onclick="showPage('portfolio')">About</a></li>
+      <li><a href="#experience" onclick="showPage('portfolio')">Experience</a></li>
+      <li><a href="#projects" onclick="showPage('portfolio')">Projects</a></li>
+      <li><a href="#" class="nav-cta" onclick="showPage('blog');return false;">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-switcher">
+    <button onclick="showPage('portfolio')">📄 Portfolio</button>
+    <button onclick="showPage('blog')">✍️ Blog</button>
+  </div>
+
+  <div class="page-wrapper">
+    <div id="page-portfolio">
+
+      <!-- ── HERO ── -->
+      <section id="hero">
+        <div class="container">
+          <div class="hero__grid">
+
+            <div class="hero__content">
+              <p class="hero__eyebrow">Hello, I'm</p>
+              <h1 class="hero__name">Mike<br><span class="gradient-text">Martinez.</span></h1>
+              <p class="hero__title">Bioinformatics Research Scientist &nbsp;·&nbsp; <em>Genomics &amp; Multi-Omics</em></p>
+              <p class="hero__bio">
+                I make sense of complex omics data — from single-cell sequencing and metagenomics
+                to bulk genomics and beyond. Currently building reproducible pipelines and
+                uncovering biological signal at Dartmouth's Center for Quantitative Biology.
+              </p>
+              <div class="hero__actions">
+                <a href="#experience" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Resume</a>
+                <a href="https://github.com/mikemartinez99" target="_blank" class="btn btn-glass"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/michael-martinez99" target="_blank" class="btn btn-glass"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" class="btn btn-glass" onclick="showPage('blog');return false;"><i class="fas fa-pencil-alt"></i> Blog</a>
+              </div>
+              <div class="hero__scroll"><span class="hero__scroll-line"></span>scroll to explore</div>
+            </div>
+
+            <!-- Photo -->
+            <div class="hero__photo-wrap">
+              <div class="hero__photo-ring">
+                <div class="hero__photo-inner">
+                  <img src="img/resume_imgs/me_new.png" alt="Mike Martinez" class="hero__photo" />
+                </div>
+              </div>
+              <div class="hero__badge glass" style="top:-5px;left:-45px;color:var(--cyan)">
+                <i class="fas fa-dna"></i>&nbsp; scRNA-Seq
+              </div>
+              <div class="hero__badge glass" style="bottom:15px;right:-45px;color:var(--violet)">
+                <i class="fas fa-code-branch"></i>&nbsp; Snakemake
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ABOUT ── -->
+      <section id="about">
+        <div class="container">
+          <p class="section-label">Who I Am</p>
+          <h2 class="section-title">About Me</h2>
+          <div class="glass about__card">
+            <div class="about__text">
+              <p>I am a bioinformatics scientist with a passion for making sense of complex omics data and uncovering meaningful patterns that help turn hypotheses into actionable insights. My background is rooted in next-gen sequencing technologies and data analysis, which has allowed me to work across a multitude of omics data modalities — including spatial proteomics via imaging mass cytometry, spatial transcriptomics, single-cell ATAC/RNA-Seq, bulk RNA-Seq, and metagenomics.</p>
+              <p>I love collaborating with bench scientists, helping them navigate their data, teaching them that bioinformatics is not scary, and learning about their research along the way. I also have experience debugging software, troubleshooting NGS workflows, and setting up reproducible pipelines through workflow management languages like Snakemake.</p>
+              <p>When I'm not sifting through sequencing files or surfing the command line, you'll probably find me in the gym putting up weights or playing the drums to my favorite nu-metal songs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EXPERIENCE ── -->
+      <section id="experience">
+        <div class="container">
+          <p class="section-label">Where I've Worked</p>
+          <h2 class="section-title">Experience</h2>
+          <div class="timeline">
+            <div class="glass tl-card">
+              <div class="tl-logo"><img src="img/resume_imgs/Geisel.png" alt="Geisel" /></div>
+              <div class="tl-body">
+                <div class="tl-header"><div><div class="tl-org">Geisel School of Medicine at Dartmouth</div><div class="tl-role">Research Scientist · Center for Quantitative Biology</div></div><span class="tl-date">Oct 2024 – Present</span></div>
+                <ul class="tl-list">
+                  <li>Developed reproducible Snakemake workflows for WES and bulk ATAC-Seq, reducing preprocessing time and enabling increased scalability.</li>
+                  <li>Supported Dartmouth researchers by developing boutique analysis pipelines for tRNA-Seq and proprietary sequencing strategies.</li>
+                  <li>Analyzed projects spanning scRNA/ATAC-seq, 10X Spatial (Visium &amp; Xenium), and metagenomics.</li>
+                  <li>Created the R package <strong style="color:var(--text-head)">RGenEDA</strong> for reproducible exploratory data analysis.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="glass tl-card">
+              <div class="tl-logo"><img src="img/resume_imgs/UCHC.jpeg" alt="UConn Health" /></div>
+              <div class="tl-body">
+                <div class="tl-header"><div><div class="tl-org">UConn Health Center</div><div class="tl-role">Clinical Research Technician I · Dept. of Molecular Oncology</div></div><span class="tl-date">Jun 2023 – Sep 2024</span></div>
+                <ul class="tl-list">
+                  <li>Spearheaded computational methods in R for multi-omics studies including bulk RNA-Seq, 16S sequencing, and targeted metabolomics.</li>
+                  <li>Conducted full DEG/GSEA analysis of bulk colon tissue to highlight combinatorial chemoprevention effects.</li>
+                  <li>Analyzed colonic spatial immune architecture via multiplex imaging mass cytometry.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="glass tl-card">
+              <div class="tl-logo"><img src="img/resume_imgs/Intus_logo.jpeg" alt="Intus" /></div>
+              <div class="tl-body">
+                <div class="tl-header"><div><div class="tl-org">Intus Biosciences</div><div class="tl-role">Bioinformatics R&amp;D Intern</div></div><span class="tl-date">Jun 2022 – Sep 2022</span></div>
+                <ul class="tl-list">
+                  <li>Leveraged synthetic PacBio and ONT long reads to validate proprietary microbiome clustering software.</li>
+                  <li>Contributed to pipeline development through custom R scripts for taxonomy call file generation.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="glass tl-card">
+              <div class="tl-logo"><img src="img/resume_imgs/UConn.png" alt="UConn" /></div>
+              <div class="tl-body">
+                <div class="tl-header"><div><div class="tl-org">Jonathan Klassen Lab (UConn MCB)</div><div class="tl-role">Student Researcher</div></div><span class="tl-date">Sep 2021 – May 2023</span></div>
+                <ul class="tl-list">
+                  <li>Managed LIMS database and NCBI SRA data deposition.</li>
+                  <li>Assembled and annotated bacterial genomes using SPAdes and Prokka.</li>
+                  <li>Investigated fungal communities of <em>T. septentrionalis</em> fungus gardens.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EDUCATION ── -->
+      <section id="education">
+        <div class="container">
+          <p class="section-label">Academic Background</p>
+          <h2 class="section-title">Education</h2>
+          <div class="edu-grid">
+            <div class="glass edu-card">
+              <div class="edu-logo"><img src="img/resume_imgs/UConn.png" alt="UConn" /></div>
+              <div><div class="edu-degree">M.S. — Microbial Systems Analysis</div><div class="edu-field">University of Connecticut</div><div class="edu-school">Advisors: Dr. Joerg Graf · Dr. Jonathan Klassen · Dr. Sarah Hird</div><span class="edu-date">May 2023</span></div>
+            </div>
+            <div class="glass edu-card">
+              <div class="edu-logo"><img src="img/resume_imgs/UConn.png" alt="UConn" /></div>
+              <div><div class="edu-degree">B.S. — Molecular &amp; Cell Biology</div><div class="edu-field">University of Connecticut</div><div class="edu-school">Minor: Psychological Sciences</div><span class="edu-date">May 2021</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PROJECTS ── -->
+      <section id="projects">
+        <div class="container">
+          <p class="section-label">What I've Built</p>
+          <h2 class="section-title">Highlighted Projects</h2>
+          <div class="projects-grid">
+            <div class="glass proj-card">
+              <img src="img/resume_imgs/RGen_EDA.png" alt="RGenEDA" class="proj-icon" />
+              <div class="proj-title">RGenEDA</div>
+              <p class="proj-desc">An R package providing a structured, reproducible framework for exploratory data analysis of genomics data — sitting cleanly between raw preprocessing and formal modeling.</p>
+              <a href="https://github.com/mikemartinez99/RGenEDA" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="glass proj-card">
+              <img src="img/resume_imgs/miRNA.png" alt="miRNA pipeline" class="proj-icon" />
+              <div class="proj-title">miRNA &amp; isomiR Pipeline</div>
+              <p class="proj-desc">A Snakemake workflow for the analysis of miRNAs and isomiRs from high-throughput sequencing data, built for the Dartmouth Data Analytics Core.</p>
+              <a href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-miRNAseq-analysis-pipeline" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="glass proj-card">
+              <img src="img/resume_imgs/exome.png" alt="WES pipeline" class="proj-icon" />
+              <div class="proj-title">Targeted WES Pipeline</div>
+              <p class="proj-desc">A Snakemake workflow for preprocessing and analysis of targeted whole exome sequencing data, with built-in QC and variant calling steps.</p>
+              <a href="https://github.com/mikemartinez99/WES_Pipeline" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TECH STACK ── -->
+      <section id="tech">
+        <div class="container">
+          <p class="section-label">Tools of the Trade</p>
+          <h2 class="section-title">Tech Stack</h2>
+          <div class="glass tech-intro">R and Snakemake are my daily drivers. I also code in Bash and Python, with a consistent focus on reproducibility, scalability, and clean reporting. My stack spans the full bioinformatics workflow — from raw read QC to publication-ready figures.</div>
+          <div class="tech-grid">
+
+            <!-- R — oval with bold R -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <defs>
+                  <linearGradient id="rOval" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#C8C8C8"/>
+                    <stop offset="100%" stop-color="#7A7A7A"/>
+                  </linearGradient>
+                </defs>
+                <!-- Gray oval -->
+                <ellipse cx="24" cy="28" rx="22" ry="18" fill="url(#rOval)"/>
+                <!-- R stem -->
+                <rect x="8" y="11" width="5" height="27" rx="1" fill="#2165B6"/>
+                <!-- R outer arch -->
+                <path d="M13 11 L24 11 Q33 11 33 20 Q33 29 24 29 L13 29 Z" fill="#2165B6"/>
+                <!-- R inner cutout -->
+                <path d="M13 15 L22 15 Q28 15 28 20 Q28 25 22 25 L13 25 Z" fill="url(#rOval)"/>
+                <!-- R leg -->
+                <line x1="25" y1="29" x2="36" y2="40" stroke="#2165B6" stroke-width="5.5" stroke-linecap="round"/>
+              </svg>
+              <span class="tech-name">R</span>
+            </div>
+
+            <!-- Python — two interlocking snake shapes -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <!-- Blue body (upper left) -->
+                <path d="M23 4 C14 4 10 8 10 15 L10 21 L26 21 L26 15 C26 12 28 10 32 10 L38 10 C37 6 32 4 23 4Z" fill="#3776AB"/>
+                <rect x="10" y="21" width="14" height="4" fill="#3776AB"/>
+                <!-- Yellow body (lower right) -->
+                <path d="M25 44 C34 44 38 40 38 33 L38 27 L22 27 L22 33 C22 36 20 38 16 38 L10 38 C11 42 16 44 25 44Z" fill="#FFD43B"/>
+                <rect x="24" y="23" width="14" height="4" fill="#FFD43B"/>
+                <!-- Blue eye -->
+                <circle cx="19" cy="12" r="2.2" fill="white"/>
+                <circle cx="19.5" cy="12" r="0.9" fill="#1a3f6f"/>
+                <!-- Yellow eye -->
+                <circle cx="29" cy="36" r="2.2" fill="white"/>
+                <circle cx="29.5" cy="36" r="0.9" fill="#7d6608"/>
+              </svg>
+              <span class="tech-name">Python</span>
+            </div>
+
+            <!-- Bash — terminal window -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <!-- Terminal body -->
+                <rect x="2" y="4" width="44" height="40" rx="7" fill="#1C2333"/>
+                <!-- Title bar -->
+                <rect x="2" y="4" width="44" height="13" rx="7" fill="#2A3347"/>
+                <rect x="2" y="11" width="44" height="6" fill="#2A3347"/>
+                <!-- Traffic lights -->
+                <circle cx="11" cy="10" r="2.8" fill="#FF5F57"/>
+                <circle cx="19" cy="10" r="2.8" fill="#FEBC2E"/>
+                <circle cx="27" cy="10" r="2.8" fill="#28C840"/>
+                <!-- Prompt line 1 -->
+                <text x="7" y="26" font-family="'Courier New',monospace" font-size="8.5" fill="#4EC94E" font-weight="bold">$ bash</text>
+                <!-- Prompt line 2 -->
+                <text x="7" y="37" font-family="'Courier New',monospace" font-size="7.5" fill="#718096">#!/bin/bash</text>
+              </svg>
+              <span class="tech-name">Bash</span>
+            </div>
+
+            <!-- Snakemake — green snake S-curve with head & tongue -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <!-- Background subtle circle -->
+                <circle cx="24" cy="24" r="22" fill="#0a2010" opacity="0.6"/>
+                <!-- Snake body S-curve -->
+                <path d="M 35 9 Q 44 9 44 17 Q 44 25 24 25 Q 4 25 4 33 Q 4 42 13 42"
+                      fill="none" stroke="#43A047" stroke-width="6.5" stroke-linecap="round"/>
+                <!-- Snake head -->
+                <circle cx="33" cy="9" r="6.5" fill="#43A047"/>
+                <!-- Head highlight -->
+                <ellipse cx="34" cy="7.5" rx="3" ry="2" fill="#66BB6A" opacity="0.5"/>
+                <!-- Eye -->
+                <circle cx="36" cy="7.5" r="1.8" fill="#1B5E20"/>
+                <circle cx="36.5" cy="7" r="0.7" fill="white"/>
+                <!-- Forked tongue -->
+                <path d="M 39 9.5 L 44 7.5 M 39 9.5 L 44 11.5"
+                      stroke="#E53935" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Tail -->
+                <circle cx="13" cy="42" r="3.5" fill="#2E7D32"/>
+              </svg>
+              <span class="tech-name">Snakemake</span>
+            </div>
+
+            <!-- scVerse — three interlocking rings (cell ecosystem motif) -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <defs>
+                  <radialGradient id="scg1" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00B4CC" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#006D77" stop-opacity="0.1"/>
+                  </radialGradient>
+                  <radialGradient id="scg2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00B4CC" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#006D77" stop-opacity="0.05"/>
+                  </radialGradient>
+                </defs>
+                <!-- Top ring -->
+                <circle cx="24" cy="15" r="11" fill="url(#scg1)" stroke="#00838F" stroke-width="2"/>
+                <!-- Bottom-left ring -->
+                <circle cx="15" cy="31" r="11" fill="url(#scg2)" stroke="#00838F" stroke-width="2" opacity="0.85"/>
+                <!-- Bottom-right ring -->
+                <circle cx="33" cy="31" r="11" fill="url(#scg2)" stroke="#00838F" stroke-width="2" opacity="0.7"/>
+                <!-- Center dots -->
+                <circle cx="24" cy="15" r="2.5" fill="#00838F"/>
+                <circle cx="15" cy="31" r="2.5" fill="#00838F" opacity="0.85"/>
+                <circle cx="33" cy="31" r="2.5" fill="#00838F" opacity="0.7"/>
+                <!-- Connecting lines -->
+                <line x1="24" y1="15" x2="15" y2="31" stroke="#00838F" stroke-width="1" opacity="0.4"/>
+                <line x1="24" y1="15" x2="33" y2="31" stroke="#00838F" stroke-width="1" opacity="0.4"/>
+                <line x1="15" y1="31" x2="33" y2="31" stroke="#00838F" stroke-width="1" opacity="0.4"/>
+              </svg>
+              <span class="tech-name">scVerse</span>
+            </div>
+
+            <!-- Git — branch diagram in git orange -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <circle cx="35" cy="13" r="5.5" stroke="#F05032" stroke-width="2.5"/>
+                <circle cx="13" cy="13" r="5.5" stroke="#F05032" stroke-width="2.5"/>
+                <circle cx="13" cy="35" r="5.5" stroke="#F05032" stroke-width="2.5"/>
+                <line x1="13" y1="18.5" x2="13" y2="29.5" stroke="#F05032" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M18.5 13 Q24 13 24 19 L24 30" stroke="#F05032" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M24 30 Q24 35 29.5 35" stroke="#F05032" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <line x1="24" y1="13" x2="29.5" y2="13" stroke="#F05032" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <span class="tech-name">Git</span>
+            </div>
+
+            <!-- HPC / SLURM — server rack in emerald -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <rect x="4" y="6"  width="40" height="9" rx="3" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5"/>
+                <circle cx="10" cy="10.5" r="2" fill="#10b981"/>
+                <rect x="16" y="9" width="16" height="3" rx="1.5" fill="rgba(16,185,129,0.35)"/>
+                <rect x="34" y="9" width="6" height="3" rx="1.5" fill="rgba(16,185,129,0.2)"/>
+                <rect x="4" y="19" width="40" height="9" rx="3" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.6)" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <circle cx="10" cy="23.5" r="2" fill="rgba(16,185,129,0.75)"/>
+                <rect x="16" y="22" width="12" height="3" rx="1.5" fill="rgba(16,185,129,0.25)"/>
+                <rect x="4" y="32" width="40" height="9" rx="3" fill="rgba(16,185,129,0.07)" stroke="rgba(16,185,129,0.4)" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <circle cx="10" cy="36.5" r="2" fill="rgba(16,185,129,0.45)"/>
+                <rect x="16" y="35" width="8" height="3" rx="1.5" fill="rgba(16,185,129,0.15)"/>
+              </svg>
+              <span class="tech-name">HPC / SLURM</span>
+            </div>
+
+            <!-- Spatial Omics — heatmap grid -->
+            <div class="glass tech-item">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <rect x="3"  y="3"  width="9" height="9" rx="2" fill="rgba(6,182,212,0.9)"/>
+                <rect x="14" y="3"  width="9" height="9" rx="2" fill="rgba(139,92,246,0.65)"/>
+                <rect x="25" y="3"  width="9" height="9" rx="2" fill="rgba(6,182,212,0.35)"/>
+                <rect x="36" y="3"  width="9" height="9" rx="2" fill="rgba(139,92,246,0.95)"/>
+                <rect x="3"  y="14" width="9" height="9" rx="2" fill="rgba(139,92,246,0.45)"/>
+                <rect x="14" y="14" width="9" height="9" rx="2" fill="rgba(16,185,129,0.85)"/>
+                <rect x="25" y="14" width="9" height="9" rx="2" fill="rgba(6,182,212,0.7)"/>
+                <rect x="36" y="14" width="9" height="9" rx="2" fill="rgba(139,92,246,0.35)"/>
+                <rect x="3"  y="25" width="9" height="9" rx="2" fill="rgba(6,182,212,0.25)"/>
+                <rect x="14" y="25" width="9" height="9" rx="2" fill="rgba(6,182,212,0.55)"/>
+                <rect x="25" y="25" width="9" height="9" rx="2" fill="rgba(16,185,129,0.5)"/>
+                <rect x="36" y="25" width="9" height="9" rx="2" fill="rgba(6,182,212,0.88)"/>
+                <rect x="3"  y="36" width="9" height="9" rx="2" fill="rgba(139,92,246,0.8)"/>
+                <rect x="14" y="36" width="9" height="9" rx="2" fill="rgba(6,182,212,0.45)"/>
+                <rect x="25" y="36" width="9" height="9" rx="2" fill="rgba(139,92,246,0.6)"/>
+                <rect x="36" y="36" width="9" height="9" rx="2" fill="rgba(16,185,129,0.9)"/>
+              </svg>
+              <span class="tech-name">Spatial Omics</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── BLOG PREVIEW ── -->
+      <section id="blog-preview">
+        <div class="container">
+          <p class="section-label">Latest Writing</p>
+          <h2 class="section-title">From the Blog</h2>
+          <div class="posts-grid">
+            <div class="glass post-card" onclick="showPage('blog')">
+              <div class="post-card__meta"><span class="post-cat">Bioinformatics</span><span class="post-date">Mar 28, 2026</span></div>
+              <div class="post-card__title">From Snapshots to Motion: Multimodal Velocity Analysis with MultiVelo</div>
+              <p class="post-card__excerpt">Exploring how MultiVelo integrates RNA and ATAC modalities to infer cellular dynamics and trajectory.</p>
+              <div class="post-tags"><span class="tag"># RNA Velocity</span><span class="tag"># scRNA-Seq</span></div>
+            </div>
+            <div class="glass post-card" onclick="showPage('blog')">
+              <div class="post-card__meta"><span class="post-cat">Bioinformatics</span><span class="post-date">Jan 31, 2026</span></div>
+              <div class="post-card__title">The Basics of Exploratory Data Analysis</div>
+              <p class="post-card__excerpt">EDA helps you understand what is driving variation in your data before formal modeling.</p>
+              <div class="post-tags"><span class="tag"># Tutorial</span></div>
+            </div>
+            <div class="glass post-card" onclick="showPage('blog')">
+              <div class="post-card__meta"><span class="post-cat">Bioinformatics Tooling</span><span class="post-date">Dec 12, 2025</span></div>
+              <div class="post-card__title">Pixi, Conda's Cooler and Faster Cousin.</div>
+              <p class="post-card__excerpt">Pixi is a blazing-fast, project-based package and environment manager built by the creators of Mamba.</p>
+              <div class="post-tags"><span class="tag"># Learning</span></div>
+            </div>
+          </div>
+          <div class="section-cta">
+            <button class="btn btn-primary" onclick="showPage('blog')">View All Posts <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /portfolio -->
+
+    <!-- ── BLOG PAGE ── -->
+    <div id="page-blog" style="display:none;">
+      <div class="container">
+        <div class="blog-hero">
+          <p class="section-label">Compute &amp; Conquer</p>
+          <h1 class="blog-hero__title">The <span class="gradient-text">Blog.</span></h1>
+          <p class="blog-hero__sub">Thoughts on bioinformatics, practical tips &amp; tricks, tools worth knowing, and everything in between.</p>
+        </div>
+        <div class="blog-divider"></div>
+        <div class="blog-grid">
+          <div class="glass post-card"><div class="post-card__meta"><span class="post-cat">Bioinformatics</span><span class="post-date">Mar 28, 2026</span></div><div class="post-card__title">From Snapshots to Motion: Multimodal Velocity Analysis with MultiVelo</div><p class="post-card__excerpt">Exploring how MultiVelo integrates RNA and ATAC modalities to infer cellular dynamics and trajectory — going beyond single-modality RNA velocity.</p><div class="post-tags"><span class="tag"># RNA Velocity</span><span class="tag"># scRNA-Seq</span><span class="tag"># ATAC</span></div></div>
+          <div class="glass post-card"><div class="post-card__meta"><span class="post-cat">Bioinformatics</span><span class="post-date">Jan 31, 2026</span></div><div class="post-card__title">The Basics of Exploratory Data Analysis</div><p class="post-card__excerpt">EDA helps you understand what is driving variation in your data before formal modeling. RGenEDA sits between raw preprocessing and formal modeling.</p><div class="post-tags"><span class="tag"># Tutorial</span></div></div>
+          <div class="glass post-card"><div class="post-card__meta"><span class="post-cat">Bioinformatics Tooling</span><span class="post-date">Dec 12, 2025</span></div><div class="post-card__title">Pixi, Conda's Cooler and Faster Cousin.</div><p class="post-card__excerpt">Pixi is a blazing-fast, project-based package and environment manager built by the creators of Mamba. I can't believe I didn't switch sooner.</p><div class="post-tags"><span class="tag"># Learning</span></div></div>
+          <div class="glass post-card"><div class="post-card__meta"><span class="post-cat">Bioinformatics</span><span class="post-date">Dec 2, 2025</span></div><div class="post-card__title">The Subtle Art of Beating Your Head Against the Wall</div><p class="post-card__excerpt">On debugging, persistence, and learning to love the hard parts of computational biology.</p><div class="post-tags"><span class="tag"># Debugging</span></div></div>
+          <div class="glass post-card"><div class="post-card__meta"><span class="post-cat">Best Practices</span><span class="post-date">Jan 12, 2025</span></div><div class="post-card__title">The Pillars of a Sane Project</div><p class="post-card__excerpt">Reproducibility isn't optional. A framework for structuring bioinformatics projects so you don't go insane.</p><div class="post-tags"><span class="tag"># Workflow</span><span class="tag"># Best Practices</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <ul class="footer__links">
+        <li><a href="https://github.com/mikemartinez99" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/michael-martinez99" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="mailto:michael.j.martinez@dartmouth.edu"><i class="fas fa-envelope"></i> Email</a></li>
+      </ul>
+      <p class="footer__copy">© 2026 Mike Martinez · Built with Jekyll · Hosted on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script>
+    function showPage(p){
+      document.getElementById('page-portfolio').style.display=p==='portfolio'?'block':'none';
+      document.getElementById('page-blog').style.display=p==='blog'?'block':'none';
+      window.scrollTo(0,0);
+    }
+    const nav=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>nav.classList.toggle('navbar--scrolled',scrollY>40),{passive:true});
+  </script>
+</body>
+</html>
