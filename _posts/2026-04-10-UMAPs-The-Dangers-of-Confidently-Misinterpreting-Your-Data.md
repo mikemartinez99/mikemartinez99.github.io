@@ -77,7 +77,7 @@ When using UMAPs be sure to follow these general guidelines:
 - Consider including complementary visualizations to supplement any hypotheses or conclusions, such as the associated PCA plot. If these tell dramatically different stories, investigate why. 
 - Focus on intra-cluster patterns by asking, *what cells cluster together* instead of *how far apart are these clusters?* 
 - **Always** validate everything with marker genes or differential expression results. Be honest about uncertainty. 
-**Never** base biological conclusions solely on UMAP distances. 
+- **Never** base biological conclusions solely on UMAP distances. 
 
 **❌ Don't say:** "These clusters are close together, suggesting shared developmental origins"  
 **✅ Instead say:** "These populations share expression of marker genes X, Y, Z"
