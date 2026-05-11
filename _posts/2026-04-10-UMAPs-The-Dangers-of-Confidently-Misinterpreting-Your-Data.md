@@ -21,9 +21,9 @@ Looking at a UMAP is fun. Interpreting them is where things can become dangerous
 <img src="../img/May_2026/CRC_UMAP.png" alt="CRC UMAP" style="display: block; margin: auto; width: 50%;" />
 
 ## The Elephant...
-Chari and Pachter in their [2023 PLOS Computational Biology](https://www.biorxiv.org/content/10.1101/2024.03.26.586728v1#ref-3) paper claimed that UMAP (and the earlier t-SNE counterparts) are highly unstable, sensitive to hyper-parameters, and prone to over-interpretation. They go as far as to compare these particular embeddings to "forcing the data into the shape of an elephant." Thanks to those aforementioned pattern-seeking parts of our brain, we as humans are really good at seeing structure in data even when the geometry underneath it might not faithfully represent it. 
+Chari and Pachter in their [2023 PLOS Computational Biology](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011288) paper claimed that UMAP (and the earlier t-SNE counterparts) are highly unstable, sensitive to hyper-parameters, and prone to over-interpretation. They go as far as to compare these particular embeddings to "forcing the data into the shape of an elephant." Thanks to those aforementioned pattern-seeking parts of our brain, we as humans are really good at seeing structure in data even when the geometry underneath it might not faithfully represent it. 
 
-However, the story didn't end there. This paper was rebutted by [Lause et al., 2024](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012403) which showed that these methods do a pretty great job afterall. So what is the issue? UMAPs are *really* easy to misinterpret. 
+However, the story didn't end there. This paper was rebutted by [Lause et al., 2024](https://www.biorxiv.org/content/10.1101/2024.03.26.586728v1#ref-3) which showed that these methods do a pretty great job afterall. So what is the issue? UMAPs are *really* easy to misinterpret. 
 
 
 ## What is UMAP
@@ -103,6 +103,8 @@ Your cells—and your readers—will thank you. **Compute and Conquer**
 ## References
 
 - Chari, T., & Pachter, L. (2023). The specious art of single-cell genomics. *PLOS Computational Biology*, 19(8), e1011288. https://doi.org/10.1371/journal.pcbi.1011288
+
+- Chen, B., Xue, Y., Paetzold, P., & Deussen, O. (2026). Demystifying UMAP artifacts: An interactive study on diagnosis and steering using 3D probes. Information Visualization, 0(0).
 
 - Lause, J., Kobak, D., & Berens, P. (2024). The art of seeing the elephant in the room: 2D embeddings of single-cell data do make sense. *PLOS Computational Biology*, 20(10), e1012403. https://doi.org/10.1371/journal.pcbi.1012403
 
