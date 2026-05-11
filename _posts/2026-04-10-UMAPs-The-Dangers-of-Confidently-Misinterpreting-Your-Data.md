@@ -79,6 +79,15 @@ When using UMAPs be sure to follow these general guidelines:
 - **Always** validate everything with marker genes or differential expression results. Be honest about uncertainty. 
 **Never** base biological conclusions solely on UMAP distances. 
 
+**❌ Don't say:** "These clusters are close together, suggesting shared developmental origins"  
+**✅ Instead say:** "These populations share expression of marker genes X, Y, Z"
+
+**❌ Don't say:** "Cluster A is more related to B than C based on proximity"  
+**✅ Instead say:** "Pseudotime analysis suggests cluster A differentiates toward B"
+
+**❌ Don't say:** "The large size of this cluster indicates high heterogeneity"  
+**✅ Instead say:** "This population contains X cells and shows variable expression of..."
+
 ## Conclusion: UMAP is a Tool, Not a Microscope
 
 UMAP is not looking *at* your cells; it's creating a *representation* of them optimized for human visual pattern recognition. It's more like an artist's interpretation than a photograph.
