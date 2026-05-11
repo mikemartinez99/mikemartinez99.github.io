@@ -38,8 +38,6 @@ While the underlying Riemannian geometry and algebraic topology behind UMAP calc
 
 2. A low-dimensional layout is optimized such that neighborhood relationships are retained as closely as possible. 
 
-That can be a lot to digest at first, so let's take a step back and explain *how* this works in practice. 
-
 ## A Social Network Analogy
 Think of a UMAP (and the underlying neighborhoods) as your social network. The local structure of your network might encompass your closest friends and family members. However, the global structure are the handful of people you know from high school that you havent spoken to in 12 years and all the mutual friends you kinda/sorta know. A UMAP of your social network would put you and your inner circle tightly clustered. All those distance acquaintances...they'd be somewhere else on the plot. Maybe far away, but their exact distance from you is totally meaningless. That distinction, preserving local neighborhoods while sacrificing precise global distances, is one of the most *crucial* concepts in UMAP topology interpretation. 
 
