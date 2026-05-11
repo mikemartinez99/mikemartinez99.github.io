@@ -28,7 +28,7 @@ However, the story didn't end there. This paper was rebutted by [Lause et al., 2
 
 ## What is UMAP
 
-UMAP stands for *uniform manifold approximation and projection*, introduced by [McInnes, Healy, and Melville 2018](https://arxiv.org/abs/1802.03426)Prior to UMAPs ubiquity in single-cell analyses, t-distributed stochastic neighbor embedding (tSNE) was the gold-standard for single-cell and cyTOF datasets. 
+UMAP stands for *uniform manifold approximation and projection*, introduced by [McInnes, Healy, and Melville 2018](https://arxiv.org/abs/1802.03426). Prior to UMAPs ubiquity in single-cell analyses, t-distributed stochastic neighbor embedding (tSNE) was the gold-standard for single-cell and cyTOF datasets. 
 
 Both of these methods are nonlinear dimensionality reduction techniques that compress high-dimensional data into 2 or 3-dimensional planes for visualization. The resulting coordinates are known as *embeddings*. 
 
