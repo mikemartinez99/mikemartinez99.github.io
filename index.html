@@ -1,21 +1,1485 @@
----
-layout: home
-title: Compute & Conquer Blog
-# Index page
----
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAFAF7">
+  <meta name="theme-color" content="#0B0E0C" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <title>Mike Martinez M.S. · Bioinformatics Research Scientist</title>
+  <meta name="description" content="Bioinformatics research scientist specializing in multi-omics data analysis, reproducible workflows, and NGS technologies. Currently at Dartmouth's Center for Quantitative Biology.">
 
-## About Me
+  <link rel="canonical" href="https://mikemartinez99.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Mike Martinez M.S. · Bioinformatics Research Scientist">
+  <meta property="og:description" content="Bioinformatics research scientist building reproducible pipelines for multi-omics analysis.">
+  <meta property="og:url" content="https://mikemartinez99.github.io/">
 
-<div style="padding: 30px; background: var(--card-bg); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 900px; margin: 20px auto;">
-  <p style="color: var(--text-color); line-height: 1.8; font-size: 1.05rem; margin: 0;">
-    I am a bioinformatics scientist with a passion for making sense of complex omics data and uncovering meaningful patterns that help turn hypotheses into actionable insights. My background is rooted in next-gen sequencing technologies and data analysis which has allowed me to work across a multitude of omics data modalities—including spatial proteomics via imaging mass cytometry, spatial transcriptomics, single-cell ATAC/RNA-Seq, bulk RNA-Seq, and metagenomics.
-  </p>
-  
-  <p style="color: var(--text-color); line-height: 1.8; font-size: 1.05rem; margin: 20px 0 0 0;">
-    I love collaborating with bench scientists, helping them navigate their data, teaching them that bioinformatics is not scary, and learning about their research along the way. I also have experience debugging software, troubleshooting NGS workflows, and setting up reproducible pipelines through workflow management languages like Snakemake.
-  </p>
-  
-  <p style="color: var(--text-color); line-height: 1.8; font-size: 1.05rem; margin: 20px 0 0 0;">
-    When I'm not sifting through sequencing files or surfing the command line, you'll probably find me in the gym putting up weights or playing the drums to my favorite nu-metal songs.
-  </p>
-</div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <style>
+    :root {
+      --bg: #0B0E0C;
+      --surface: #161B17;
+      --border: #2A332D;
+      --fg: #E6EDE7;
+      --fg-muted: #8A968D;
+      --fg-dim: #5C665E;
+      --accent: #7DD3A0;
+      --accent-hover: #A7E5BD;
+      --accent-soft: rgba(125, 211, 160, 0.14);
+      --warn: #F5C26B;
+      --code-bg: #0E1310;
+      --header-h: 70px;
+
+      --space-1: 4px;
+      --space-2: 6px;
+      --space-3: 8px;
+      --space-4: 12px;
+      --space-5: 16px;
+      --space-6: 24px;
+      --space-7: 32px;
+      --space-8: 48px;
+      --space-9: 64px;
+      --space-10: 96px;
+    }
+
+    [data-theme="light"] {
+      --bg: #FAFAF7;
+      --surface: #F1F3F6;
+      --border: #DDE1E7;
+      --fg: #0E1310;
+      --fg-muted: #4A5358;
+      --fg-dim: #7A848A;
+      --accent: #1E5FA8;
+      --accent-hover: #154A85;
+      --accent-soft: rgba(30, 95, 168, 0.08);
+      --warn: #B47210;
+      --code-bg: #EFF1F4;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0B0E0C;
+      --surface: #161B17;
+      --border: #2A332D;
+      --fg: #E6EDE7;
+      --fg-muted: #8A968D;
+      --fg-dim: #5C665E;
+      --accent: #7DD3A0;
+      --accent-hover: #A7E5BD;
+      --accent-soft: rgba(125, 211, 160, 0.14);
+      --warn: #F5C26B;
+      --code-bg: #0E1310;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.65;
+      font-size: 16px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: var(--space-5); }
+    h3 { font-size: 1.25rem; margin-top: var(--space-6); margin-bottom: var(--space-3); }
+    h4 { font-size: 1rem; margin-top: var(--space-5); margin-bottom: var(--space-2); color: var(--accent); }
+
+    p { margin-bottom: var(--space-4); max-width: 68ch; }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .mono { font-family: 'Inter', sans-serif; font-style: italic; font-size: 0.9rem; color: var(--fg-muted); }
+
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 var(--space-5); }
+
+    .section {
+      padding: var(--space-9) 0;
+      scroll-margin-top: var(--header-h);
+    }
+    .section--surface {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    .section-header { margin-bottom: var(--space-7); }
+    .section-header h2 { margin-bottom: var(--space-3); }
+
+    .eyebrow {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--fg-muted);
+      margin-bottom: var(--space-3);
+    }
+    .cv-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      color: var(--fg-muted);
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+    .lede {
+      font-size: 1.125rem;
+      color: var(--fg-muted);
+      margin-bottom: var(--space-5);
+    }
+
+    /* Header */
+    header.site-header {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(11, 14, 12, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    [data-theme="light"] header.site-header { background: rgba(250, 250, 247, 0.92); }
+    .site-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-5);
+    }
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--fg);
+    }
+    nav.site-nav {
+      display: flex;
+      gap: var(--space-6);
+      font-size: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    nav.site-nav a {
+      color: var(--fg-muted);
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+    nav.site-nav a:hover, nav.site-nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      width: 38px; height: 38px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--fg); color: var(--fg); }
+
+    /* Hero */
+    .hero {
+      padding: var(--space-9) 0 var(--space-8);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (min-width: 880px) {
+      .hero { grid-template-columns: 1.1fr 1fr; }
+    }
+
+    .hero-headshot {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--fg);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+      margin-bottom: var(--space-5);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .hero-headshot:hover { transform: scale(1.02); }
+    @media (max-width: 640px) {
+      .hero-headshot { width: 170px; height: 170px; }
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-5);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .status-pill:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+    .status-pill::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent);
+      animation: statusPulse 2.4s ease-out infinite;
+    }
+    @keyframes statusPulse {
+      0% { box-shadow: 0 0 0 0 rgba(125, 211, 160, 0.55); }
+      80%, 100% { box-shadow: 0 0 0 8px rgba(125, 211, 160, 0); }
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 10px 18px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--fg);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn--primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+    .btn--primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--bg); }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-top: var(--space-7);
+      max-width: 56rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border) 40%, var(--border) 60%, transparent);
+    }
+    .hero-divider-cue {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      padding: var(--space-2) var(--space-4);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .hero-divider-cue:hover { color: var(--accent); transform: translateY(-2px); }
+    .hero-divider-arrow {
+      font-size: 1.1rem;
+      line-height: 1;
+      animation: scrollCueBounce 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollCueBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(4px); opacity: 1; }
+    }
+
+    /* DNA helix */
+    .dna-container {
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      overflow: hidden;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    .dna-container canvas { width: 100%; height: auto; display: block; }
+
+    /* Hero tech viz */
+    .tech-viz {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .tech-viz-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-5);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tech-viz-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .tech-viz-item img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+    .tech-viz-item span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+    }
+
+    /* 2-column layout */
+    .section-2col {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: var(--space-7);
+      margin: var(--space-6) 0;
+      align-items: start;
+    }
+    .section-2col-body { min-width: 0; }
+    .section-2col-sidebar {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: var(--space-5) var(--space-6);
+      position: sticky;
+      top: calc(var(--header-h) + 16px);
+      max-height: calc(100vh - var(--header-h) - 32px);
+      overflow-y: auto;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    [data-theme="light"] .section-2col-sidebar { background: var(--surface); }
+    .section--surface .section-2col-sidebar { background: var(--bg); }
+    [data-theme="light"] .section--surface .section-2col-sidebar { background: var(--bg); }
+    @media (max-width: 880px) {
+      .section-2col { grid-template-columns: 1fr; }
+      .section-2col-sidebar { position: static; max-height: none; overflow-y: visible; }
+    }
+    .sidebar-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-muted);
+      margin: 0 0 var(--space-4) 0;
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Prose */
+    .prose p { max-width: 68ch; margin-bottom: var(--space-5); }
+    .prose ul { margin-left: var(--space-6); margin-bottom: var(--space-4); max-width: 68ch; }
+    .prose li { margin-bottom: var(--space-2); }
+    .prose strong { color: var(--fg); font-weight: 600; }
+
+    /* CV */
+    #cv .cv-role {
+      padding-left: var(--space-6);
+      border-left: 2px solid var(--border);
+      margin-left: var(--space-3);
+      margin-top: var(--space-4);
+      margin-bottom: var(--space-6);
+      max-width: 72ch;
+    }
+    #cv .cv-role .mono { margin-bottom: var(--space-3); }
+    #cv .cv-role ul.prose { margin-left: var(--space-6); margin-bottom: 0; max-width: 64ch; }
+    #cv .cv-role h4 { margin-top: 0; color: var(--fg); }
+
+    .dl-grid {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: var(--space-4) var(--space-6);
+      margin: var(--space-5) 0;
+    }
+    @media (max-width: 640px) {
+      .dl-grid { grid-template-columns: 1fr; gap: var(--space-2) 0; }
+      .dl-grid dt { margin-top: var(--space-4); }
+    }
+    .dl-grid dt {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+      font-weight: 500;
+    }
+    .dl-grid dd { color: var(--fg); }
+    .dl-grid dd .role-meta { color: var(--fg-muted); font-size: 0.875rem; display: block; margin-top: 2px; }
+
+    /* Skills */
+    .skills-stack { display: flex; flex-direction: column; gap: var(--space-5); }
+    .skills-stack .skills-group h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--fg-muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin: 0 0 var(--space-2) 0;
+    }
+    .skill-tag {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      margin-right: var(--space-1);
+      margin-bottom: var(--space-1);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+    }
+    a.skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+    .skill-tag.highlight {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Blog cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-auto-rows: 1fr;
+      gap: var(--space-5);
+      align-items: stretch;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.2s, transform 0.2s, background-color 0.25s ease;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    .card-summary {
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+    }
+    .card-year { color: var(--fg-muted); font-family: 'JetBrains Mono', monospace; }
+    .card-category { color: var(--fg-muted); font-style: italic; }
+
+    .card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      color: var(--fg-muted);
+      font-size: 0.9rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.45;
+    }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: auto; padding-top: var(--space-2); }
+    .tag {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+    }
+
+    .card-read-more {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: auto;
+      padding-top: var(--space-2);
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin: var(--space-5) 0 var(--space-7);
+      align-items: center;
+    }
+    .filter-tag {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-tag:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-tag.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-5);
+      margin: var(--space-5) 0;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: var(--space-6);
+      transition: border-color 0.2s, transform 0.2s, background-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-card h3 { margin-top: 0; margin-bottom: var(--space-2); }
+    .project-card p { max-width: 64ch; }
+    .project-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .project-card .project-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      margin-top: auto;
+    }
+
+    /* Now section */
+    .now-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: var(--space-6);
+      margin: var(--space-5) 0;
+      max-width: 76ch;
+      transition: border-color 0.2s, background-color 0.25s ease;
+    }
+    .now-card:hover { border-color: var(--accent); }
+    .now-card h3 { margin-top: 0; }
+
+    /* Contact sidebar */
+    .contact-stack { display: flex; flex-direction: column; }
+    .contact-stack .contact-item {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      border-radius: 0;
+      padding: var(--space-3) 0;
+    }
+    .contact-stack .contact-item:hover { border-bottom-color: var(--accent); }
+    .contact-stack .contact-item:last-child { border-bottom: none; }
+    .contact-stack .contact-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-muted);
+      margin-bottom: 2px;
+    }
+    .contact-stack .contact-value { font-size: 0.95rem; margin-bottom: 0; }
+    .contact-stack .contact-meta { font-size: 0.7rem; line-height: 1.3; margin-top: 2px; color: var(--fg-dim); }
+
+    /* Impact sidebar */
+    .impact-stack { display: flex; flex-direction: column; }
+    .impact-stack .impact-item {
+      text-align: left;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .impact-stack .impact-item:last-child { border-bottom: none; }
+    .impact-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0;
+      line-height: 1.1;
+    }
+    .impact-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-muted);
+      margin-bottom: 2px;
+    }
+    .impact-caption { font-size: 0.7rem; line-height: 1.4; color: var(--fg-dim); }
+
+    /* Footer */
+    footer.site-footer {
+      padding: var(--space-7) 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      transition: border-color 0.25s ease;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      margin-bottom: var(--space-4);
+    }
+    .footer-links a { color: var(--fg-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      width: 38px; height: 38px;
+      border-radius: 6px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      nav.site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: var(--space-5);
+        gap: var(--space-4);
+      }
+      nav.site-nav.open { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    (function () {
+      const saved = localStorage.getItem('mm-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="#top" class="logo" aria-label="Home">M. Martinez</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <a href="#about">about</a>
+        <a href="#cv">cv</a>
+        <a href="#blog">blog</a>
+        <a href="#projects">projects</a>
+        <a href="#now">now</a>
+        <a href="#contact">contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="section">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-content">
+            <img src="img/resume_imgs/me_new.png" alt="Mike Martinez portrait" class="hero-headshot" width="220" height="220" loading="eager">
+            <h1>Mike Martinez M.S.</h1>
+            <p class="lede">Bioinformatics research scientist making sense of complex omics data and building reproducible pipelines.</p>
+            <p style="color: var(--fg-muted);">Currently at the <strong style="color: var(--fg);">Geisel School of Medicine at Dartmouth</strong>, Center for Quantitative Biology (Genomic Data Science Core). Working across pipeline development, single cell 'omics, metagenomics, and spatial 'omics. Building tools like <a href="#projects" style="color: var(--fg); font-weight: 600;">RGenEDA</a> and reproducible Snakemake workflows for the research community.</p>
+            <div class="cta-group">
+              <a href="mailto:michael.j.martinez@dartmouth.edu" class="btn btn--primary">Email &rarr;</a>
+              <a href="https://github.com/mikemartinez99" class="btn" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/michael-martinez99" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+          <div>
+            <div class="dna-container">
+              <canvas id="dnaCanvas" width="460" height="460"></canvas>
+              <p style="text-align:center; font-family:'Fraunces',serif; font-size:1.1rem; color:var(--accent); margin-top:0.5rem; letter-spacing:0.02em;">Bioinformatics Happens Here.</p>
+            </div>
+            <div class="tech-viz" style="margin-top: var(--space-5);">
+              <div class="tech-viz-item">
+                <img src="img/resume_imgs/R_logo.png" alt="R">
+                <span>R</span>
+              </div>
+              <div class="tech-viz-item">
+                <img src="img/resume_imgs/python_logo.png" alt="Python">
+                <span>Python</span>
+              </div>
+              <div class="tech-viz-item">
+                <img src="img/resume_imgs/Snakemake_logo.png" alt="Snakemake">
+                <span>Snakemake</span>
+              </div>
+              <div class="tech-viz-item">
+                <img src="img/resume_imgs/bash_logo.png" alt="Bash">
+                <span>Bash</span>
+              </div>
+              <div class="tech-viz-item">
+                <img src="img/resume_imgs/rust_logo.png" alt="Rust">
+                <span>Rust (learning)</span>
+              </div>
+              <div class="tech-viz-item">
+                <img src="img/resume_imgs/DNA.png" alt="Omics">
+                <span>Multi-Omics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-divider" aria-hidden="true">
+          <span class="hero-divider-line"></span>
+          <a href="#about" class="hero-divider-cue">
+            <span>scroll for more</span>
+            <span class="hero-divider-arrow">&darr;</span>
+          </a>
+          <span class="hero-divider-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + HIGHLIGHTS -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-2col">
+          <div class="section-2col-body">
+            <div class="section-header">
+              <span class="eyebrow">About</span>
+              <h2>Overview</h2>
+            </div>
+            <div class="prose">
+              <p>I'm a bioinformatics scientist with a passion for making sense of complex omics data and uncovering meaningful patterns that help turn hypotheses into actionable insights. My background is rooted in next-gen sequencing technologies and data analysis, which has allowed me to work across a multitude of omics data modalities.</p>
+              <p>Key areas of expertise:</p>
+              <ul>
+                <li><strong>Pipeline development:</strong> Snakemake workflows, R packages, reproducible analysis frameworks.</li>
+                <li><strong>Single-cell genomics:</strong> scRNA-Seq, scATAC-Seq, and multiome analysis.</li>
+                <li><strong>Bulk sequencing:</strong> RNA-Seq, ATAC-Seq, WES, tRNA-Seq, miRNA-Seq.</li>
+                <li><strong>Metagenomics:</strong> 16S amplicon sequencing, whole-metagenome shotgun sequencing.</li>
+                <li><strong>Spatial omics:</strong> 10X Visium spatial transcriptomics, imaging mass cytometry.</li>
+              </ul>
+              <p>I love collaborating with bench scientists, helping them navigate their data, and teaching them that bioinformatics is not scary. When I'm not sifting through sequencing files or surfing the command line, you'll probably find me in the gym putting up weights or playing the drums to my favorite nu-metal songs.</p>
+            </div>
+          </div>
+
+          <aside class="section-2col-sidebar" aria-label="Highlights at a glance">
+            <h3 class="sidebar-title">Highlights</h3>
+            <div class="impact-stack">
+              <div class="impact-item">
+                <div class="impact-value">Diverse Experience</div>
+                <div class="impact-label">Experienced in multiple genomics modalities</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-value">Pipeline Development</div>
+                <div class="impact-label">Snakemake Focused</div>
+                <div class="impact-caption">Developed 6+ Omics pipelines for Dartmouth community</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-value">Package Development</div>
+                <div class="impact-label">R Package</div>
+                <div class="impact-caption">Author of RGenEDA</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-value">Compute and Conquer</div>
+                <div class="impact-label">My monthly blog for all things bioinformatics</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-value">M.S. + B.S.</div>
+                <div class="impact-label">UConn</div>
+                <div class="impact-caption">Microbial Systems Analysis &amp; MCB</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section class="section section--surface" id="cv">
+      <div class="container">
+        <div class="section-2col">
+          <div class="section-2col-body">
+            <div class="section-header" style="margin-bottom: var(--space-6);">
+              <span class="eyebrow">Curriculum Vitae</span>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: var(--space-5); margin-top: var(--space-2);">
+                <div style="min-width: 0;">
+                  <h2 style="margin-bottom: var(--space-2);">Bioinformatics Research Scientist</h2>
+                  <p class="cv-subtitle">Dartmouth Geisel School of Medicine &middot; UConn M.S.</p>
+                </div>
+              </div>
+            </div>
+
+            <h3>Contact</h3>
+            <dl class="dl-grid">
+              <dt>Email</dt><dd><a href="mailto:michael.j.martinez@dartmouth.edu">michael.j.martinez@dartmouth.edu</a></dd>
+              <dt>Location</dt><dd>Hanover, NH</dd>
+              <dt>GitHub</dt><dd><a href="https://github.com/mikemartinez99" target="_blank" rel="noopener">mikemartinez99</a></dd>
+            </dl>
+
+            <h3>Experience</h3>
+
+            <div class="cv-role">
+              <h4>Research Scientist, Genomic Data Science Core</h4>
+              <p class="mono">Geisel School of Medicine &middot; Center for Quantitative Biology &middot; Lebanon, NH &middot; Oct 2024 &ndash; Current</p>
+              <ul class="prose">
+                <li>Created an open-source R package (RGenEDA) geared toward bulk RNA-Seq exploratory data analysis, facilitating frameworks for reproducible and unified analysis within a bioinformatics core.</li>
+                <li>Developed reproducible Snakemake workflows for WXS, bulk ATAC-Seq, and miRNA-Seq reducing data-preprocessing time and allowing for increased scalability.</li>
+                <li>Converted the core's repertoire of Conda environments to Pixi Workspaces, developing robust SOPs for their use for both core staff and the larger Dartmouth community.</li>
+                <li>Support Dartmouth researchers through development of boutique-analysis pipelines for tRNA-Seq and other proprietary sequencing strategies for nuclear receptors.</li>
+                <li>Analyze a wide range of projects for core clientele spanning eukaryotic and prokaryotic genomics including scRNA, scATAC, 10x Visium/Xenium, MGX, WXS, and bulk sequencing.</li>
+              </ul>
+            </div>
+
+            <div class="cv-role">
+              <h4>Clinical Research Technician I, Rosenberg Lab</h4>
+              <p class="mono">UConn Health Center &middot; Department of Molecular Oncology &middot; Farmington, CT &middot; Jun 2023 &ndash; Sept 2024</p>
+              <ul class="prose">
+                <li>Spearheaded the design and application of computational methods in R for multi-omics studies including bulk RNASeq, 16S, and targeted metabolomics across multiple projects.</li>
+                <li>Utilized bash scripting to automate the processing of raw fastq files for bulk RNASeq on an HPC.</li>
+                <li>Completed a full DEG/GSEA analysis of Pirc rats in R through multiple Bioconductor packages to highlight the combinatorial effect of naproxen and EPA in colorectal cancer chemoprevention.</li>
+                <li>Examined the spatial immune architecture of clinical CRC tumor samples through multiplex imaging mass cytometry.</li>
+                <li>Generated effective and publication quality figures through R to easily communicate findings.</li>
+              </ul>
+            </div>
+
+            <div class="cv-role">
+              <h4>Computational Intern, R&amp;D</h4>
+              <p class="mono">Intus Biosciences &middot; Farmington, CT &middot; Jun 2022 &ndash; Sept 2022</p>
+              <ul class="prose">
+                <li>Leveraged synthetic PacBio and Oxford Nanopore long reads as a standardized ground-truth input to validate proprietary microbiome clustering software to resolve sequences down to strain resolution.</li>
+                <li>Aided in pipeline development through a series of custom R scripts to process taxonomy call files.</li>
+              </ul>
+            </div>
+
+            <div class="cv-role">
+              <h4>Analyst, Klassen Lab</h4>
+              <p class="mono">UConn Molecular and Cell Biology &middot; Storrs, CT &middot; Sept 2021 &ndash; May 2023</p>
+              <ul class="prose">
+                <li>Managed LIMs database and deposition of raw sequencing reads to NCBI's SRA service.</li>
+                <li>Assembled and annotated bacterial genomes from Illumina MiSeq reads using SPAdes and Prokka.</li>
+                <li>Investigated fungal communities of <em>T. septentrionalis</em> fungus gardens using R (DADA2 and Phyloseq).</li>
+              </ul>
+            </div>
+
+            <h3>Education</h3>
+            <dl class="dl-grid">
+              <dt>2021&ndash;2023</dt>
+              <dd><strong>M.S., Microbial Systems Analysis</strong> &middot; University of Connecticut<span class="role-meta">Advisors: Dr. Joerg Graf, Dr. Jonathan Klassen, Dr. Sarah Hird</span></dd>
+              <dt>2017&ndash;2021</dt>
+              <dd><strong>B.S., Molecular and Cell Biology</strong> &middot; University of Connecticut<span class="role-meta">Minor: Psychological Sciences</span></dd>
+            </dl>
+          </div>
+
+          <aside class="section-2col-sidebar" aria-label="Skills">
+            <h3 class="sidebar-title">Skills</h3>
+            <div class="skills-stack">
+              <div class="skills-group">
+                <h3>Languages</h3>
+                <div>
+                  <span class="skill-tag highlight">R</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Bash</span>
+                  <span class="skill-tag">Rust</span>
+                </div>
+              </div>
+              <div class="skills-group">
+                <h3>Workflow &amp; Pipelines</h3>
+                <div>
+                  <span class="skill-tag highlight">Snakemake</span>
+                  <span class="skill-tag">Nextflow</span>
+                  <span class="skill-tag">Pixi</span>
+                  <span class="skill-tag">Conda</span>
+                </div>
+              </div>
+              <div class="skills-group">
+                <h3>Sequencing &amp; Analysis</h3>
+                <div>
+                  <span class="skill-tag">scRNA-Seq</span>
+                  <span class="skill-tag">scATAC-Seq</span>
+                  <span class="skill-tag">Spatial Tx</span>
+                  <span class="skill-tag">Bulk RNA-Seq</span>
+                  <span class="skill-tag">WES</span>
+                  <span class="skill-tag">16S</span>
+                  <span class="skill-tag">IMC</span>
+                  <span class="skill-tag">miRNA-Seq</span>
+                </div>
+              </div>
+              <div class="skills-group">
+                <h3>Key Tools</h3>
+                <div>
+                  <span class="skill-tag">Seurat</span>
+                  <span class="skill-tag">Scanpy</span>
+                  <span class="skill-tag">DESeq2</span>
+                  <span class="skill-tag">ggplot2</span>
+                  <span class="skill-tag">STAR</span>
+                  <span class="skill-tag">GATK</span>
+                  <span class="skill-tag">scVerse</span>
+                  <span class="skill-tag">Bioconductor</span>
+                </div>
+              </div>
+              <div class="skills-group">
+                <h3>Infrastructure</h3>
+                <div>
+                  <span class="skill-tag">HPC / Slurm</span>
+                  <span class="skill-tag">Git/GitHub</span>
+                  <span class="skill-tag">Linux</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="section" id="blog">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" id="blogCount"></span>
+          <h2>Blog</h2>
+          <p style="color: var(--fg-muted);">Bioinformatics musings, tutorials, and practical tips.</p>
+        </div>
+
+        <div class="filters" id="blogFilters"></div>
+
+        <div class="cards-grid" id="blogCards"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section section--surface" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Featured Work</span>
+          <h2>Projects</h2>
+          <p style="color: var(--fg-muted);">Open-source tools and reproducible pipelines for the bioinformatics community.</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-meta">R Package</div>
+            <h3>RGenEDA</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">R package for reproducible exploratory data analysis for genomics data. Sits between raw preprocessing and formal modeling, providing a structured framework for data exploration and QC.</p>
+            <a class="project-link" href="https://github.com/mikemartinez99/RGenEDA" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>miRNA &amp; isomiR Pipeline</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the analysis of miRNAs and isomiRs from high-throughput sequencing data.</p>
+            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-miRNAseq-analysis-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>Clover-Seq</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the comprehensive quantitative analysis of tRNA-seq libraries.</p>
+            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-clover-Seq" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>RNA-Seq Pipeline</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for efficient and comprehensive bulk RNA-seq preprocessing.</p>
+            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/DAC-RNAseq-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">R Package</div>
+            <h3>scoutR</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Single cell Omics helper functions in R.</p>
+            <a class="project-link" href="https://github.com/mikemartinez99/scoutR" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>Targeted WES Pipeline</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the preprocessing and analysis of targeted whole exome sequencing (WES) data.</p>
+            <a class="project-link" href="https://github.com/mikemartinez99/WES_Pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Rust</div>
+            <h3>Learning Rust</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">My Rust learning journey.</p>
+            <a class="project-link" href="https://github.com/mikemartinez99/Rust_Learning" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NOW -->
+    <section class="section" id="now">
+      <div class="container">
+        <div class="section-2col">
+          <div class="section-2col-body">
+            <div class="section-header">
+              <span class="eyebrow">May 2026</span>
+              <h2>Now</h2>
+              <p style="color: var(--fg-muted);">What I'm working on and what comes next.</p>
+            </div>
+
+            <div class="now-card">
+              <div class="project-meta">Center for Quantitative Biology</div>
+              <h3>Multi-omics analysis at Dartmouth</h3>
+              <p style="color: var(--fg-muted);">Supporting researchers across the Geisel School of Medicine with bioinformatics analysis spanning single-cell, spatial, and bulk sequencing modalities. Building reproducible Snakemake workflows and developing open source R packages to help streamline genomic analyses.</p>
+            </div>
+
+            <div style="margin-top: var(--space-7); padding: var(--space-6); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; max-width: 64ch;">
+              <h3 style="margin-top: 0;">Want to connect?</h3>
+              <p style="color: var(--fg-muted); margin-bottom: var(--space-5);">Happy to chat about bioinformatics, reproducible pipelines, or just meet someone new in the omics space. Email is fastest.</p>
+              <div class="cta-group" style="margin-top: 0;">
+                <a href="mailto:michael.j.martinez@dartmouth.edu" class="btn btn--primary">Email me</a>
+                <a href="https://www.linkedin.com/in/michael-martinez99" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/mikemartinez99" class="btn" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="section-2col-sidebar" id="contact" aria-label="Contact">
+            <h3 class="sidebar-title">Get in touch</h3>
+            <div class="contact-stack">
+              <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-value"><a href="mailto:michael.j.martinez@dartmouth.edu">michael.j.martinez@dartmouth.edu</a></div>
+                <div class="contact-meta">Fastest response time</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value"><a href="https://www.linkedin.com/in/michael-martinez99" target="_blank" rel="noopener">michael-martinez99</a></div>
+                <div class="contact-meta">Professional profile</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value"><a href="https://github.com/mikemartinez99" target="_blank" rel="noopener">mikemartinez99</a></div>
+                <div class="contact-meta">Open-source work</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">Location</div>
+                <div class="contact-value">Hanover, NH</div>
+                <div class="contact-meta">Dartmouth / Upper Valley area</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#about">about</a>
+        <a href="#cv">cv</a>
+        <a href="#blog">blog</a>
+        <a href="#projects">projects</a>
+        <a href="#contact">contact</a>
+        <a href="https://github.com/mikemartinez99" target="_blank" rel="noopener">github</a>
+      </div>
+      <p>Static HTML &middot; Last updated May 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ============ DNA HELIX ============ */
+    (function () {
+      const canvas = document.getElementById('dnaCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = 460, H = 460;
+      let angle = 0;
+
+      const basePairs = 20;
+      const helixRadius = 70;
+      const verticalSpacing = H / (basePairs + 1);
+      const speed = 0.012;
+
+      function getColors() {
+        const style = getComputedStyle(document.documentElement);
+        return {
+          accent: style.getPropertyValue('--accent').trim() || '#7DD3A0',
+          accentHover: style.getPropertyValue('--accent-hover').trim() || '#A7E5BD',
+          warn: style.getPropertyValue('--warn').trim() || '#F5C26B',
+          dim: style.getPropertyValue('--fg-dim').trim() || '#5C665E'
+        };
+      }
+
+      function draw() {
+        const c = getColors();
+        ctx.clearRect(0, 0, W, H);
+        const cx = W / 2;
+        const pairs = [];
+
+        for (let i = 0; i < basePairs; i++) {
+          const y = verticalSpacing * (i + 1);
+          const phase = angle + (i * Math.PI * 2) / basePairs;
+          const x1 = cx + Math.cos(phase) * helixRadius;
+          const x2 = cx + Math.cos(phase + Math.PI) * helixRadius;
+          const z1 = Math.sin(phase);
+          const z2 = Math.sin(phase + Math.PI);
+          pairs.push({ y, x1, x2, z1, z2 });
+        }
+
+        // Rungs
+        for (const p of pairs) {
+          ctx.beginPath();
+          ctx.moveTo(p.x1, p.y);
+          ctx.lineTo(p.x2, p.y);
+          ctx.strokeStyle = c.dim;
+          ctx.lineWidth = 2;
+          ctx.globalAlpha = 0.3 + Math.abs(p.z1) * 0.2;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+
+        // Strand 1
+        ctx.beginPath();
+        for (let i = 0; i < pairs.length; i++) {
+          if (i === 0) ctx.moveTo(pairs[i].x1, pairs[i].y);
+          else {
+            const cpY = (pairs[i - 1].y + pairs[i].y) / 2;
+            ctx.quadraticCurveTo(pairs[i - 1].x1, cpY, pairs[i].x1, pairs[i].y);
+          }
+        }
+        ctx.strokeStyle = c.accent;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Strand 2
+        ctx.beginPath();
+        for (let i = 0; i < pairs.length; i++) {
+          if (i === 0) ctx.moveTo(pairs[i].x2, pairs[i].y);
+          else {
+            const cpY = (pairs[i - 1].y + pairs[i].y) / 2;
+            ctx.quadraticCurveTo(pairs[i - 1].x2, cpY, pairs[i].x2, pairs[i].y);
+          }
+        }
+        ctx.strokeStyle = c.accentHover;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Nucleotide dots
+        for (const p of pairs) {
+          const size1 = 4 + (1 + p.z1) * 2;
+          const size2 = 4 + (1 + p.z2) * 2;
+
+          ctx.beginPath();
+          ctx.arc(p.x1, p.y, size1, 0, Math.PI * 2);
+          ctx.fillStyle = p.z1 > 0 ? c.accent : c.warn;
+          ctx.globalAlpha = 0.6 + (1 + p.z1) * 0.2;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+
+          ctx.beginPath();
+          ctx.arc(p.x2, p.y, size2, 0, Math.PI * 2);
+          ctx.fillStyle = p.z2 > 0 ? c.accentHover : c.warn;
+          ctx.globalAlpha = 0.6 + (1 + p.z2) * 0.2;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        angle += speed;
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    })();
+
+    /* Theme toggle */
+    (function () {
+      const toggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      function update() {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        toggle.textContent = isDark ? '☀️' : '🌙';
+        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+      toggle.addEventListener('click', () => {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        try { localStorage.setItem('mm-theme', next); } catch (e) {}
+        update();
+      });
+      update();
+    })();
+
+    /* Mobile nav toggle */
+    (function () {
+      const btn = document.getElementById('navToggle');
+      const nav = document.getElementById('siteNav');
+      btn.addEventListener('click', () => nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    })();
+
+    /* Active nav (IntersectionObserver) */
+    (function () {
+      const navLinks = document.querySelectorAll('nav.site-nav a');
+      const linkMap = new Map();
+      navLinks.forEach(a => {
+        const id = a.getAttribute('href').replace('#', '');
+        if (id) linkMap.set(id, a);
+      });
+      const sections = ['about', 'cv', 'blog', 'projects', 'now', 'contact']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const link = linkMap.get(entry.target.id);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            navLinks.forEach(a => a.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+      sections.forEach(s => observer.observe(s));
+    })();
+
+    /* ============ BLOG POSTS DATA ============ */
+    /* To add a new post: add an entry to the TOP of this array. */
+    const BLOG_POSTS = [
+      {
+        title: "UMAPs: The Dangers of Confidently Misinterpreting Your Data",
+        date: "2026-04-10",
+        category: "Bioinformatics Musing",
+        tags: ["Single Cell Omics"],
+        desc: "UMAPs are perhaps the easiest way of gaslighting yourself. Interpret with caution and avoid the pitfalls of non-linear reductions!",
+        url: "https://mikemartinez99.github.io/posts/UMAPs-The-Dangers-of-Confidently-Misinterpreting-Your-Data/"
+      },
+      {
+        title: "From Snapshots to Motion: Multimodal Velocity Analysis with MultiVelo",
+        date: "2026-03-23",
+        category: "Bioinformatics Tooling",
+        tags: ["Single Cell Omics"],
+        desc: "Multiome data lets you simultaneously measure gene expression and open chromatin regions. MultiVelo lets you model the timing and dynamics between these two modalities.",
+        url: "https://mikemartinez99.github.io/posts/From-Snapshots-to-Motion-Multimodal-Velocity-Analysis-with-MultiVelo/"
+      },
+      {
+        title: "The Basics of Exploratory Data Analysis",
+        date: "2026-01-31",
+        category: "Bioinformatics",
+        tags: ["Tutorial"],
+        desc: "EDA helps you understand what is driving variation in your data before formal modeling. Introducing RGenEDA for structured, reproducible data exploration.",
+        url: "https://mikemartinez99.github.io/posts/The-Basics-of-Exploratory-Data-Analysis/"
+      },
+      {
+        title: "The Pillars of a Sane Project",
+        date: "2026-01-12",
+        category: "Bioinformatics",
+        tags: ["Learning"],
+        desc: "Future-you doesn't have the memory present-you thinks you have. A guide to project organization and reproducibility.",
+        url: "https://mikemartinez99.github.io/posts/The-Pillars-of-a-Sane-Project/"
+      },
+      {
+        title: "Pixi, Conda's Cooler and Faster Cousin",
+        date: "2025-12-12",
+        category: "Bioinformatics Tooling",
+        tags: ["Learning"],
+        desc: "Pixi is a blazing-fast, project-based package and environment manager built by the creators of Mamba. A literal game-changer for reproducibility.",
+        url: "https://mikemartinez99.github.io/posts/Pixi-Condas-Cooler-and-Faster-Cousin/"
+      },
+      {
+        title: "The Subtle Art of Beating Your Head Against the Wall",
+        date: "2025-12-02",
+        category: "Bioinformatics Musings",
+        tags: ["Learning"],
+        desc: "Learning bioinformatics is less about instant wins and more about learning to persist through repeated failure. Persistence is the real skill.",
+        url: "https://mikemartinez99.github.io/posts/The-Subtle-Art-of-Beating-Your-Head-Against-the-Wall/"
+      }
+    ];
+
+    /* ============ BLOG RENDERER ============ */
+    (function () {
+      const container = document.getElementById('blogCards');
+      const filtersEl = document.getElementById('blogFilters');
+      const countEl = document.getElementById('blogCount');
+
+      // Sort by date descending (newest first)
+      BLOG_POSTS.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      // Update post count
+      countEl.textContent = BLOG_POSTS.length + ' Posts';
+
+      // Build filter buttons from all unique tags
+      const allTags = new Set();
+      BLOG_POSTS.forEach(p => p.tags.forEach(t => allTags.add(t)));
+      const filterKeys = ['all', ...allTags];
+
+      filterKeys.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-tag' + (tag === 'all' ? ' active' : '');
+        btn.setAttribute('data-filter', tag.toLowerCase().replace(/\s+/g, '-'));
+        btn.textContent = tag === 'all' ? 'All' : tag;
+        filtersEl.appendChild(btn);
+      });
+
+      // Render cards
+      BLOG_POSTS.forEach(post => {
+        const year = new Date(post.date).getFullYear();
+        const tagFilter = post.tags.map(t => t.toLowerCase().replace(/\s+/g, '-')).join(',');
+        const tagsHtml = post.tags.map(t => '<span class="tag">' + t + '</span>').join('');
+
+        const card = document.createElement('a');
+        card.className = 'card';
+        card.href = post.url;
+        card.target = '_blank';
+        card.setAttribute('data-tags', tagFilter);
+        card.innerHTML =
+          '<div class="card-summary">' +
+            '<div class="card-meta">' +
+              '<span class="card-year">' + year + '</span>' +
+              '<span class="card-category">' + post.category + '</span>' +
+            '</div>' +
+            '<h3 class="card-title">' + post.title + '</h3>' +
+            '<p class="card-desc">' + post.desc + '</p>' +
+            '<div class="card-tags">' + tagsHtml + '</div>' +
+            '<span class="card-read-more">Read post &rarr;</span>' +
+          '</div>';
+        container.appendChild(card);
+      });
+
+      // Show only first 6 posts, hide the rest
+      const VISIBLE_COUNT = 6;
+      function applyVisibility(filter) {
+        const cards = Array.from(container.querySelectorAll('.card'));
+        let shown = 0;
+        cards.forEach(card => {
+          const tags = card.getAttribute('data-tags') || '';
+          const matchesFilter = filter === 'all' || tags.includes(filter);
+          if (matchesFilter && shown < VISIBLE_COUNT) {
+            card.style.display = '';
+            shown++;
+          } else if (matchesFilter) {
+            card.style.display = 'none';
+            card.setAttribute('data-overflow', 'true');
+          } else {
+            card.style.display = 'none';
+            card.removeAttribute('data-overflow');
+          }
+        });
+        updateShowMoreBtn(filter);
+      }
+
+      // "See older posts" button
+      const showMoreBtn = document.createElement('a');
+      showMoreBtn.className = 'btn';
+      showMoreBtn.style.cssText = 'margin-top: var(--space-6); display: none;';
+      showMoreBtn.href = 'https://mikemartinez99.github.io/archives/';
+      showMoreBtn.target = '_blank';
+      showMoreBtn.textContent = 'See older posts →';
+      container.parentNode.appendChild(showMoreBtn);
+
+      function updateShowMoreBtn(filter) {
+        const cards = Array.from(container.querySelectorAll('.card'));
+        const totalMatching = cards.filter(c => {
+          const tags = c.getAttribute('data-tags') || '';
+          return filter === 'all' || tags.includes(filter);
+        }).length;
+        showMoreBtn.style.display = totalMatching > VISIBLE_COUNT ? 'inline-flex' : 'none';
+      }
+
+      // Initial render
+      applyVisibility('all');
+
+      // Filter logic
+      filtersEl.addEventListener('click', e => {
+        const btn = e.target.closest('.filter-tag');
+        if (!btn) return;
+        const filter = btn.getAttribute('data-filter');
+        filtersEl.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyVisibility(filter);
+      });
+    })();
+  </script>
+</body>
+</html>
