@@ -94,9 +94,10 @@ The paper reports that *Tal1⁻/⁻ tdTomato⁺* cells did not contribute to blo
 
 Here we have 2 wildtype (WT) samples versus 2 *Tal1⁻/⁻ tdTomato⁺* samples (all at E8.5). 
 
-<img src="../img/Oct_2026/celltype_composition.png" alt="Results1" style="float: right; width: 30%; margin: 0 0 1em 1.5em;" />
-
-<img src="../img/Oct_2026/sccomp_output.png" alt="Results2" style="float: right; width: 30%; margin: 0 0 1em 1.5em;" />
+<div style="display: flex; gap: 1em; align-items: flex-start; margin: 1em 0;">
+  <div style="flex: 1;"><img src="../img/Oct_2026/celltype_composition.png" alt="Results1" style="width: 100%;" /></div>
+  <div style="flex: 1;"><img src="../img/Oct_2026/sccomp_output.png" alt="Results2" style="width: 100%;" /></div>
+</div>
 
 1. Erythroid 1, 2, and 3 clusters had a strong negative compositional effect, indicating (essentially) their near-complete ablation in the *Tal1⁻/⁻* cells. Erythroid cells occupy a much larger share of the total number of cells in the wildtype (WT) samples, simply because these cells are gone in the knockout samples. 
 
