@@ -1,5 +1,5 @@
 ---
-title: "Differential Abundance in Single-Cell Omics with sccomp"
+title: "Who Ate My Oranges? Differential Abundance Analysis with sccomp"
 date: 2026-10-03
 categories: [Bioinformatics Tooling, Tutorial]
 tags: [Single Cell Omics, Tutorial]
