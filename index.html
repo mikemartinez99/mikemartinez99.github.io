@@ -618,19 +618,19 @@
       font-size: 0.8rem;
       margin-top: auto;
     }
-
-    /* Now section */
-    .now-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: var(--space-6);
-      margin: var(--space-5) 0;
-      max-width: 76ch;
-      transition: border-color 0.2s, background-color 0.25s ease;
+    /* Package hex sticker, tucked into the card's top-right corner */
+    .project-card { position: relative; }
+    .project-hex {
+      position: absolute;
+      top: var(--space-5);
+      right: var(--space-5);
+      width: 64px;
+      height: auto;
+      transition: transform 0.2s;
     }
-    .now-card:hover { border-color: var(--accent); }
-    .now-card h3 { margin-top: 0; }
+    .project-card:hover .project-hex { transform: rotate(-6deg) scale(1.05); }
+    .project-card.has-hex .project-meta,
+    .project-card.has-hex h3 { padding-right: 76px; }
 
     /* Contact sidebar */
     .contact-stack { display: flex; flex-direction: column; }
@@ -759,10 +759,9 @@
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
       <nav class="site-nav" id="siteNav" aria-label="Primary">
         <a href="#about">about</a>
+        <a href="#projects">projects</a>
         <a href="#cv">cv</a>
         <a href="#blog">blog</a>
-        <a href="#projects">projects</a>
-        <a href="#now">now</a>
         <a href="#contact">contact</a>
       </nav>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
@@ -779,11 +778,12 @@
             <img src="img/resume_imgs/me_new.png" alt="Mike Martinez portrait" class="hero-headshot" width="220" height="220" loading="eager">
             <h1>Mike Martinez M.S.</h1>
             <p class="lede">Bioinformatics research scientist making sense of complex omics data and building reproducible pipelines.</p>
-            <p style="color: var(--fg-muted);">Currently at the <strong style="color: var(--fg);">Geisel School of Medicine at Dartmouth</strong>, Center for Quantitative Biology (Genomic Data Science Core). Working across pipeline development, single cell 'omics, metagenomics, and spatial 'omics. Building tools like <a href="#projects" style="color: var(--fg); font-weight: 600;">RGenEDA</a> and reproducible Snakemake workflows for the research community.</p>
+            <p style="color: var(--fg-muted);">Currently at the <strong style="color: var(--fg);">Geisel School of Medicine at Dartmouth</strong>, Center for Quantitative Biology (Genomic Data Science Core). Working across pipeline development, single cell 'omics, metagenomics, and spatial 'omics. Building tools like <a href="#projects" style="color: var(--fg); font-weight: 600;">RGenEDA</a>, <a href="#projects" style="color: var(--fg); font-weight: 600;">scoranet</a>, and reproducible Snakemake workflows for the research community.</p>
             <div class="cta-group">
               <a href="mailto:michael.j.martinez@dartmouth.edu" class="btn btn--primary">Email &rarr;</a>
               <a href="https://github.com/mikemartinez99" class="btn" target="_blank" rel="noopener">GitHub</a>
               <a href="https://www.linkedin.com/in/michael-martinez99" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="#blog" class="btn">Blog</a>
             </div>
           </div>
           <div>
@@ -914,8 +914,73 @@
       </div>
     </section>
 
+    <!-- PROJECTS -->
+    <section class="section section--surface" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Featured Work</span>
+          <h2>Projects</h2>
+          <p style="color: var(--fg-muted);">Open-source tools and reproducible pipelines for the bioinformatics community.</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card has-hex">
+            <img class="project-hex" src="img/hex_RGenEDA.png" alt="RGenEDA hex logo" width="64" height="74" loading="lazy">
+            <div class="project-meta">R Package</div>
+            <h3>RGenEDA</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">R package for reproducible exploratory data analysis for genomics data. Sits between raw preprocessing and formal modeling, providing a structured framework for data exploration and QC.</p>
+            <a class="project-link" href="https://github.com/mikemartinez99/RGenEDA" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card has-hex">
+            <img class="project-hex" src="img/hex_scoranet.png" alt="scoranet hex logo" width="64" height="74" loading="lazy">
+            <div class="project-meta">R Package</div>
+            <h3>scoranet</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">R package for Interpretable single-cell over-representation analysis networks.</p>
+            <a class="project-link" href="https://github.com/mikemartinez99/scoranet" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>miRNA &amp; isomiR Pipeline</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the analysis of miRNAs and isomiRs from high-throughput sequencing data.</p>
+            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-miRNAseq-analysis-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>Clover-Seq</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the comprehensive quantitative analysis of tRNA-seq libraries.</p>
+            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-clover-Seq" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>RNA-Seq Pipeline</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for efficient and comprehensive bulk RNA-seq preprocessing.</p>
+            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/DAC-RNAseq-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Snakemake Workflow</div>
+            <h3>Biobakery MGX Pipeline</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the preprocessing and analysis of metagenomics data through the Biobakery Suite of tools.</p>
+            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-Biobakery-MGX-Pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta">Rust</div>
+            <h3>Learning Rust</h3>
+            <p style="color: var(--fg-muted); font-size: 0.9rem;">My Rust learning journey.</p>
+            <a class="project-link" href="https://github.com/mikemartinez99/Rust_Learning" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- CV -->
-    <section class="section section--surface" id="cv">
+    <section class="section" id="cv">
       <div class="container">
         <div class="section-2col">
           <div class="section-2col-body">
@@ -1052,7 +1117,7 @@
     </section>
 
     <!-- BLOG -->
-    <section class="section" id="blog">
+    <section class="section section--surface" id="blog">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow" id="blogCount"></span>
@@ -1066,87 +1131,12 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section section--surface" id="projects">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Featured Work</span>
-          <h2>Projects</h2>
-          <p style="color: var(--fg-muted);">Open-source tools and reproducible pipelines for the bioinformatics community.</p>
-        </div>
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-meta">R Package</div>
-            <h3>RGenEDA</h3>
-            <p style="color: var(--fg-muted); font-size: 0.9rem;">R package for reproducible exploratory data analysis for genomics data. Sits between raw preprocessing and formal modeling, providing a structured framework for data exploration and QC.</p>
-            <a class="project-link" href="https://github.com/mikemartinez99/RGenEDA" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-meta">R Package</div>
-            <h3>scoranet</h3>
-            <p style="color: var(--fg-muted); font-size: 0.9rem;">R package for Interpretable single-cell over-representation analysis networks.</p>
-            <a class="project-link" href="https://github.com/mikemartinez99/scoranet" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-meta">Snakemake Workflow</div>
-            <h3>miRNA &amp; isomiR Pipeline</h3>
-            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the analysis of miRNAs and isomiRs from high-throughput sequencing data.</p>
-            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-miRNAseq-analysis-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-meta">Snakemake Workflow</div>
-            <h3>Clover-Seq</h3>
-            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the comprehensive quantitative analysis of tRNA-seq libraries.</p>
-            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-clover-Seq" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-meta">Snakemake Workflow</div>
-            <h3>RNA-Seq Pipeline</h3>
-            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for efficient and comprehensive bulk RNA-seq preprocessing.</p>
-            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/DAC-RNAseq-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-meta">Snakemake Workflow</div>
-            <h3>Biobakery MGX Pipeline</h3>
-            <p style="color: var(--fg-muted); font-size: 0.9rem;">Snakemake workflow for the preprocessing and analysis of metagenomics data through the Biobakery Suite of tools.</p>
-            <a class="project-link" href="https://github.com/Dartmouth-Data-Analytics-Core/GDSC-Biobakery-MGX-Pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-meta">Rust</div>
-            <h3>Learning Rust</h3>
-            <p style="color: var(--fg-muted); font-size: 0.9rem;">My Rust learning journey.</p>
-            <a class="project-link" href="https://github.com/mikemartinez99/Rust_Learning" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- NOW -->
-    <section class="section" id="now">
+    <!-- CONTACT -->
+    <section class="section" id="contact">
       <div class="container">
         <div class="section-2col">
           <div class="section-2col-body">
-            <div class="section-header">
-              <span class="eyebrow">May 2026</span>
-              <h2>Now</h2>
-              <p style="color: var(--fg-muted);">What I'm working on and what comes next.</p>
-            </div>
-
-            <div class="now-card">
-              <div class="project-meta">Center for Quantitative Biology</div>
-              <h3>Multi-omics analysis at Dartmouth</h3>
-              <p style="color: var(--fg-muted);">Supporting researchers across the Geisel School of Medicine with bioinformatics analysis spanning single-cell, spatial, and bulk sequencing modalities. Building reproducible Snakemake workflows and developing open source R packages to help streamline genomic analyses.</p>
-            </div>
-
-            <div style="margin-top: var(--space-7); padding: var(--space-6); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; max-width: 64ch;">
+            <div style="padding: var(--space-6); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; max-width: 64ch;">
               <h3 style="margin-top: 0;">Want to connect?</h3>
               <p style="color: var(--fg-muted); margin-bottom: var(--space-5);">Happy to chat about bioinformatics, reproducible pipelines, or just meet someone new in the omics space. Email is fastest.</p>
               <div class="cta-group" style="margin-top: 0;">
@@ -1157,7 +1147,7 @@
             </div>
           </div>
 
-          <aside class="section-2col-sidebar" id="contact" aria-label="Contact">
+          <aside class="section-2col-sidebar" aria-label="Contact">
             <h3 class="sidebar-title">Get in touch</h3>
             <div class="contact-stack">
               <div class="contact-item">
@@ -1191,9 +1181,9 @@
     <div class="container">
       <div class="footer-links">
         <a href="#about">about</a>
+        <a href="#projects">projects</a>
         <a href="#cv">cv</a>
         <a href="#blog">blog</a>
-        <a href="#projects">projects</a>
         <a href="#contact">contact</a>
         <a href="https://github.com/mikemartinez99" target="_blank" rel="noopener">github</a>
       </div>
@@ -1236,7 +1226,7 @@
         const id = a.getAttribute('href').replace('#', '');
         if (id) linkMap.set(id, a);
       });
-      const sections = ['about', 'cv', 'blog', 'projects', 'now', 'contact']
+      const sections = ['about', 'projects', 'cv', 'blog', 'contact']
         .map(id => document.getElementById(id))
         .filter(Boolean);
 
