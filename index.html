@@ -14,6 +14,12 @@
   <meta property="og:title" content="Mike Martinez M.S. · Bioinformatics Research Scientist">
   <meta property="og:description" content="Bioinformatics research scientist building reproducible pipelines for multi-omics analysis.">
   <meta property="og:url" content="https://mikemartinez99.github.io/">
+  <meta property="og:image" content="https://mikemartinez99.github.io/img/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Compute and Conquer: Mike Martinez M.S., Bioinformatics Research Scientist">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mikemartinez99.github.io/img/social-preview.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -334,19 +340,6 @@
       0%, 100% { transform: translateY(0); opacity: 0.5; }
       50% { transform: translateY(4px); opacity: 1; }
     }
-
-    /* DNA helix */
-    .dna-container {
-      width: 100%;
-      max-width: 460px;
-      margin: 0 auto;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--surface);
-      overflow: hidden;
-      transition: background-color 0.25s ease, border-color 0.25s ease;
-    }
-    .dna-container canvas { width: 100%; height: auto; display: block; }
 
     /* Hero tech viz */
     .tech-viz {
@@ -794,9 +787,37 @@
             </div>
           </div>
           <div>
-            <div class="dna-container">
-              <canvas id="dnaCanvas" width="460" height="460"></canvas>
-              <p style="text-align:center; font-family:'Fraunces',serif; font-size:1.1rem; color:var(--accent); margin-top:0.5rem; letter-spacing:0.02em;">Bioinformatics Happens Here.</p>
+            <div style="text-align:center;">
+              <p style="color:var(--fg-muted); margin-bottom:0.75rem;">This month's blog:</p>
+              <svg class="cc-logo" viewBox="0 0 260 190" width="230" role="img" aria-label="Compute and Conquer logo" xmlns="http://www.w3.org/2000/svg">
+                <rect x="14" y="14" width="232" height="140" rx="12" style="fill:var(--surface); stroke:var(--border); stroke-width:2;"/>
+                <line x1="14" y1="40" x2="246" y2="40" style="stroke:var(--border); stroke-width:2;"/>
+                <circle cx="32" cy="27" r="4.5" style="fill:var(--fg-dim);"/>
+                <circle cx="48" cy="27" r="4.5" style="fill:var(--warn);"/>
+                <circle cx="64" cy="27" r="4.5" style="fill:var(--accent);"/>
+                <path d="M36 78 L54 92 L36 106" style="fill:none; stroke:var(--accent); stroke-width:5; stroke-linecap:round; stroke-linejoin:round;"/>
+                <g style="stroke-width:3; stroke-linecap:round;">
+                  <line x1="83.0" y1="100.9" x2="83.0" y2="83.1" style="stroke:var(--accent); opacity:0.8;"/>
+                  <line x1="94.5" y1="112.0" x2="94.5" y2="72.0" style="stroke:var(--warn); opacity:0.8;"/>
+                  <line x1="105.9" y1="102.7" x2="105.9" y2="81.3" style="stroke:var(--accent); opacity:0.8;"/>
+                  <line x1="117.4" y1="82.5" x2="117.4" y2="101.5" style="stroke:var(--warn); opacity:0.8;"/>
+                  <line x1="128.8" y1="72.0" x2="128.8" y2="112.0" style="stroke:var(--accent); opacity:0.8;"/>
+                  <line x1="140.3" y1="81.9" x2="140.3" y2="102.1" style="stroke:var(--warn); opacity:0.8;"/>
+                  <line x1="151.7" y1="102.1" x2="151.7" y2="81.9" style="stroke:var(--accent); opacity:0.8;"/>
+                  <line x1="163.2" y1="112.0" x2="163.2" y2="72.0" style="stroke:var(--warn); opacity:0.8;"/>
+                  <line x1="174.6" y1="101.5" x2="174.6" y2="82.5" style="stroke:var(--accent); opacity:0.8;"/>
+                  <line x1="186.1" y1="81.3" x2="186.1" y2="102.7" style="stroke:var(--warn); opacity:0.8;"/>
+                  <line x1="197.5" y1="72.0" x2="197.5" y2="112.0" style="stroke:var(--accent); opacity:0.8;"/>
+                  <line x1="209.0" y1="83.1" x2="209.0" y2="100.9" style="stroke:var(--warn); opacity:0.8;"/>
+                </g>
+                <g style="fill:none; stroke:var(--accent); stroke-width:4; stroke-linecap:round;">
+                  <path d="M78.0 92.0 L79.1 94.1 L80.3 96.2 L81.4 98.2 L82.5 100.1 L83.7 102.0 L84.8 103.8 L85.9 105.4 L87.1 106.9 L88.2 108.2 L89.3 109.3 L90.5 110.3 L91.6 111.0 L92.7 111.6 L93.9 111.9 L95.0 112.0 L96.1 111.9 L97.3 111.6 L98.4 111.0 L99.5 110.3 L100.7 109.3 L101.8 108.2 L102.9 106.9 L104.1 105.4 L105.2 103.8 L106.3 102.0 L107.5 100.1 L108.6 98.2 L109.7 96.2 L110.9 94.1 L112.0 92.0 L113.1 89.9 L114.3 87.8 L115.4 85.8 L116.5 83.9 L117.7 82.0 L118.8 80.2 L119.9 78.6 L121.1 77.1 L122.2 75.8 L123.3 74.7 L124.5 73.7 L125.6 73.0 L126.7 72.4 L127.9 72.1 L129.0 72.0 L130.1 72.1 L131.3 72.4 L132.4 73.0 L133.5 73.7 L134.7 74.7 L135.8 75.8 L136.9 77.1 L138.1 78.6 L139.2 80.2 L140.3 82.0 L141.5 83.9 L142.6 85.8 L143.7 87.8 L144.9 89.9 L146.0 92.0 L147.1 94.1 L148.3 96.2 L149.4 98.2 L150.5 100.1 L151.7 102.0 L152.8 103.8 L153.9 105.4 L155.1 106.9 L156.2 108.2 L157.3 109.3 L158.5 110.3 L159.6 111.0 L160.7 111.6 L161.9 111.9 L163.0 112.0 L164.1 111.9 L165.3 111.6 L166.4 111.0 L167.5 110.3 L168.7 109.3 L169.8 108.2 L170.9 106.9 L172.1 105.4 L173.2 103.8 L174.3 102.0 L175.5 100.1 L176.6 98.2 L177.7 96.2 L178.9 94.1 L180.0 92.0 L181.1 89.9 L182.3 87.8 L183.4 85.8 L184.5 83.9 L185.7 82.0 L186.8 80.2 L187.9 78.6 L189.1 77.1 L190.2 75.8 L191.3 74.7 L192.5 73.7 L193.6 73.0 L194.7 72.4 L195.9 72.1 L197.0 72.0 L198.1 72.1 L199.3 72.4 L200.4 73.0 L201.5 73.7 L202.7 74.7 L203.8 75.8 L204.9 77.1 L206.1 78.6 L207.2 80.2 L208.3 82.0 L209.5 83.9 L210.6 85.8 L211.7 87.8 L212.9 89.9 L214.0 92.0"/>
+                  <path d="M78.0 92.0 L79.1 89.9 L80.3 87.8 L81.4 85.8 L82.5 83.9 L83.7 82.0 L84.8 80.2 L85.9 78.6 L87.1 77.1 L88.2 75.8 L89.3 74.7 L90.5 73.7 L91.6 73.0 L92.7 72.4 L93.9 72.1 L95.0 72.0 L96.1 72.1 L97.3 72.4 L98.4 73.0 L99.5 73.7 L100.7 74.7 L101.8 75.8 L102.9 77.1 L104.1 78.6 L105.2 80.2 L106.3 82.0 L107.5 83.9 L108.6 85.8 L109.7 87.8 L110.9 89.9 L112.0 92.0 L113.1 94.1 L114.3 96.2 L115.4 98.2 L116.5 100.1 L117.7 102.0 L118.8 103.8 L119.9 105.4 L121.1 106.9 L122.2 108.2 L123.3 109.3 L124.5 110.3 L125.6 111.0 L126.7 111.6 L127.9 111.9 L129.0 112.0 L130.1 111.9 L131.3 111.6 L132.4 111.0 L133.5 110.3 L134.7 109.3 L135.8 108.2 L136.9 106.9 L138.1 105.4 L139.2 103.8 L140.3 102.0 L141.5 100.1 L142.6 98.2 L143.7 96.2 L144.9 94.1 L146.0 92.0 L147.1 89.9 L148.3 87.8 L149.4 85.8 L150.5 83.9 L151.7 82.0 L152.8 80.2 L153.9 78.6 L155.1 77.1 L156.2 75.8 L157.3 74.7 L158.5 73.7 L159.6 73.0 L160.7 72.4 L161.9 72.1 L163.0 72.0 L164.1 72.1 L165.3 72.4 L166.4 73.0 L167.5 73.7 L168.7 74.7 L169.8 75.8 L170.9 77.1 L172.1 78.6 L173.2 80.2 L174.3 82.0 L175.5 83.9 L176.6 85.8 L177.7 87.8 L178.9 89.9 L180.0 92.0 L181.1 94.1 L182.3 96.2 L183.4 98.2 L184.5 100.1 L185.7 102.0 L186.8 103.8 L187.9 105.4 L189.1 106.9 L190.2 108.2 L191.3 109.3 L192.5 110.3 L193.6 111.0 L194.7 111.6 L195.9 111.9 L197.0 112.0 L198.1 111.9 L199.3 111.6 L200.4 111.0 L201.5 110.3 L202.7 109.3 L203.8 108.2 L204.9 106.9 L206.1 105.4 L207.2 103.8 L208.3 102.0 L209.5 100.1 L210.6 98.2 L211.7 96.2 L212.9 94.1 L214.0 92.0"/>
+                </g>
+                <rect x="222" y="112" width="14" height="5" rx="1" style="fill:var(--fg);"><animate attributeName="opacity" values="1;1;0;0" dur="1.2s" repeatCount="indefinite"/></rect>
+                <text x="130" y="182" text-anchor="middle" style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; letter-spacing:0.18em; fill:var(--fg-muted);">COMPUTE &amp; CONQUER</text>
+              </svg>
+              <p style="font-family:'Fraunces',serif; font-size:1.25rem; letter-spacing:0.02em; margin-top:0;"><a id="latestPost" href="https://mikemartinez99.github.io/posts/Who-Ate-My-Oranges-Differential-Abundance-Analysis-with-sccomp/" style="color:var(--accent);">Who Ate My Oranges? Differential Abundance Analysis with sccomp</a></p>
             </div>
             <div class="tech-viz" style="margin-top: var(--space-5);">
               <div class="tech-viz-item">
@@ -1181,110 +1202,6 @@
   </footer>
 
   <script>
-    /* ============ DNA HELIX ============ */
-    (function () {
-      const canvas = document.getElementById('dnaCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = 460, H = 460;
-      let angle = 0;
-
-      const basePairs = 20;
-      const helixRadius = 70;
-      const verticalSpacing = H / (basePairs + 1);
-      const speed = 0.012;
-
-      function getColors() {
-        const style = getComputedStyle(document.documentElement);
-        return {
-          accent: style.getPropertyValue('--accent').trim() || '#7DD3A0',
-          accentHover: style.getPropertyValue('--accent-hover').trim() || '#A7E5BD',
-          warn: style.getPropertyValue('--warn').trim() || '#F5C26B',
-          dim: style.getPropertyValue('--fg-dim').trim() || '#5C665E'
-        };
-      }
-
-      function draw() {
-        const c = getColors();
-        ctx.clearRect(0, 0, W, H);
-        const cx = W / 2;
-        const pairs = [];
-
-        for (let i = 0; i < basePairs; i++) {
-          const y = verticalSpacing * (i + 1);
-          const phase = angle + (i * Math.PI * 2) / basePairs;
-          const x1 = cx + Math.cos(phase) * helixRadius;
-          const x2 = cx + Math.cos(phase + Math.PI) * helixRadius;
-          const z1 = Math.sin(phase);
-          const z2 = Math.sin(phase + Math.PI);
-          pairs.push({ y, x1, x2, z1, z2 });
-        }
-
-        // Rungs
-        for (const p of pairs) {
-          ctx.beginPath();
-          ctx.moveTo(p.x1, p.y);
-          ctx.lineTo(p.x2, p.y);
-          ctx.strokeStyle = c.dim;
-          ctx.lineWidth = 2;
-          ctx.globalAlpha = 0.3 + Math.abs(p.z1) * 0.2;
-          ctx.stroke();
-          ctx.globalAlpha = 1;
-        }
-
-        // Strand 1
-        ctx.beginPath();
-        for (let i = 0; i < pairs.length; i++) {
-          if (i === 0) ctx.moveTo(pairs[i].x1, pairs[i].y);
-          else {
-            const cpY = (pairs[i - 1].y + pairs[i].y) / 2;
-            ctx.quadraticCurveTo(pairs[i - 1].x1, cpY, pairs[i].x1, pairs[i].y);
-          }
-        }
-        ctx.strokeStyle = c.accent;
-        ctx.lineWidth = 3;
-        ctx.stroke();
-
-        // Strand 2
-        ctx.beginPath();
-        for (let i = 0; i < pairs.length; i++) {
-          if (i === 0) ctx.moveTo(pairs[i].x2, pairs[i].y);
-          else {
-            const cpY = (pairs[i - 1].y + pairs[i].y) / 2;
-            ctx.quadraticCurveTo(pairs[i - 1].x2, cpY, pairs[i].x2, pairs[i].y);
-          }
-        }
-        ctx.strokeStyle = c.accentHover;
-        ctx.lineWidth = 3;
-        ctx.stroke();
-
-        // Nucleotide dots
-        for (const p of pairs) {
-          const size1 = 4 + (1 + p.z1) * 2;
-          const size2 = 4 + (1 + p.z2) * 2;
-
-          ctx.beginPath();
-          ctx.arc(p.x1, p.y, size1, 0, Math.PI * 2);
-          ctx.fillStyle = p.z1 > 0 ? c.accent : c.warn;
-          ctx.globalAlpha = 0.6 + (1 + p.z1) * 0.2;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-
-          ctx.beginPath();
-          ctx.arc(p.x2, p.y, size2, 0, Math.PI * 2);
-          ctx.fillStyle = p.z2 > 0 ? c.accentHover : c.warn;
-          ctx.globalAlpha = 0.6 + (1 + p.z2) * 0.2;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-        }
-
-        angle += speed;
-        requestAnimationFrame(draw);
-      }
-
-      draw();
-    })();
-
     /* Theme toggle */
     (function () {
       const toggle = document.getElementById('themeToggle');
@@ -1422,6 +1339,13 @@
 
       // Sort by date descending (newest first)
       BLOG_POSTS.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      // Show newest post in the hero
+      const latestEl = document.getElementById('latestPost');
+      if (latestEl && BLOG_POSTS.length) {
+        latestEl.textContent = BLOG_POSTS[0].title;
+        latestEl.href = BLOG_POSTS[0].url;
+      }
 
       // Update post count
       countEl.textContent = BLOG_POSTS.length + ' Posts';
