@@ -737,6 +737,18 @@
       }
       nav.site-nav.open { display: flex; }
     }
+
+    /* ============ ASCII FIELD (hero background, follows cursor) ============ */
+    .hero-section { position: relative; overflow: hidden; }
+    .hero-section > .container { position: relative; z-index: 1; }
+    #asciiField {
+      position: absolute; inset: 0; margin: 0; z-index: 0;
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 12px;
+      color: var(--accent); opacity: 0.16;
+      white-space: pre; overflow: hidden;
+      pointer-events: none; user-select: none;
+    }
+    [data-theme="light"] #asciiField { opacity: 0.12; }
   </style>
 </head>
 <body>
@@ -766,7 +778,8 @@
 
   <main id="top">
     <!-- HERO -->
-    <section class="section">
+    <section class="section hero-section">
+      <pre id="asciiField" aria-hidden="true"></pre>
       <div class="container">
         <div class="hero">
           <div class="hero-content">
@@ -1503,6 +1516,91 @@
         btn.classList.add('active');
         applyVisibility(filter);
       });
+    })();
+  </script>
+  <script>
+    /* ============ ASCII FIELD ============
+       Each character cell gets a brightness value from two parts:
+       1. slow concentric rings from the hero centre
+       2. a spotlight that trails the cursor
+       The value picks a character from the density ramp. */
+    (function () {
+      const el = document.getElementById('asciiField');
+      if (!el) return;
+      const host = el.parentElement;
+      const ramp = ' .:-=+xX#8@';
+
+      // Tuning knobs
+      const TRAIL = 0.12;       // lower = longer, slower trail
+      const SPOT_RADIUS = 180;  // higher = larger spotlight
+      const SPOT_GAIN = 1.2;    // spotlight brightness
+      const RING_FREQ = 0.15;   // ring spacing
+      const RING_SPEED = 0.0024;
+
+      let cw = 7.2, ch = 12, cols = 0, rows = 0;
+      const mouse = { x: -1e4, y: -1e4 };
+      const trail = { x: -1e4, y: -1e4 };
+      let visible = true, running = false;
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function measure() {
+        const probe = document.createElement('span');
+        probe.textContent = 'M'.repeat(50);
+        probe.style.visibility = 'hidden';
+        el.appendChild(probe);
+        cw = probe.getBoundingClientRect().width / 50 || 7.2;
+        probe.remove();
+        cols = Math.ceil(host.clientWidth / cw);
+        rows = Math.ceil(host.clientHeight / ch);
+      }
+
+      window.addEventListener('pointermove', function (e) {
+        const r = host.getBoundingClientRect();
+        mouse.x = (e.clientX - r.left) / cw;
+        mouse.y = (e.clientY - r.top) / ch;
+      }, { passive: true });
+      document.addEventListener('pointerleave', function () { mouse.x = mouse.y = -1e4; });
+
+      function render(t) {
+        trail.x += (mouse.x - trail.x) * TRAIL;
+        trail.y += (mouse.y - trail.y) * TRAIL;
+        const cx = cols * 0.7, cy = rows / 2, s = t * RING_SPEED;
+        const fade = cols * 0.6, n = ramp.length;
+        let out = '';
+        for (let y = 0; y < rows; y++) {
+          const dy = (y - cy) * 2;              // cells are about 2x taller than wide
+          const my = (y - trail.y) * 2;
+          for (let x = 0; x < cols; x++) {
+            const dx = x - cx;
+            const r = Math.sqrt(dx * dx + dy * dy);
+            let v = (0.5 + 0.5 * Math.sin(r * RING_FREQ - s)) * Math.exp(-r / fade);
+            const mx = x - trail.x;
+            v += SPOT_GAIN * Math.exp(-(mx * mx + my * my) / SPOT_RADIUS);
+            out += ramp[Math.min(n - 1, (v * n) | 0)];
+          }
+          out += '\n';
+        }
+        el.textContent = out;
+      }
+
+      function loop(t) {
+        if (!visible) { running = false; return; }
+        render(t);
+        requestAnimationFrame(loop);
+      }
+      function start() {
+        if (still) { render(0); return; }
+        if (!running) { running = true; requestAnimationFrame(loop); }
+      }
+
+      // Stop drawing when the hero is scrolled out of view
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        if (visible) start();
+      }).observe(host);
+
+      window.addEventListener('resize', function () { measure(); if (still) render(0); });
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { measure(); start(); });
     })();
   </script>
 </body>
